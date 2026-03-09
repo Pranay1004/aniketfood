@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>DHAABA 420 — Authentic Maharashtrian Eats @ IIST TRV</title>
+<meta name="description" content="Crispy Vada Pav, Misal Pav, Bhel & more. Authentic Maharashtrian street food at IIST Thiruvananthapuram campus. Order online, confirm on WhatsApp."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Baloo+2:wght@400;600;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet"/>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━ CONFIG — CHANGE THESE ━━━━━━━━━━━━━━━━━━━━ -->
+<!-- Replace 919XXXXXXXXX with your actual WhatsApp number (country code + number, no +) -->
+<script>
+  const OWNER_WHATSAPP = "919082571606"; // ← YOUR NUMBER HERE
+  const DHAABA_UPI     = "9082571606@upi"; // ← YOUR UPI ID HERE
+</script>
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+<style>
+:root {
+  --saffron:#FF6B00; --deep:#C0392B; --turmeric:#F5C518;
+  --green:#27AE60; --dark:#0F0500; --mid:#1A0800;
+  --cream:#FFF8EC; --wa:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--dark);color:var(--cream);
+  font-family:'Baloo 2',cursive;overflow-x:hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:99px;}
+
+/* ── LOADER ── */
+#loader{
+  position:fixed;inset:0;z-index:9999;background:var(--dark);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .5s,visibility .5s;
+}
+#loader.gone{opacity:0;visibility:hidden;pointer-events:none;}
+.ld-emoji{font-size:72px;animation:ldSpin 1s linear infinite;}
+.ld-text{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--saffron);
+  margin-top:14px;letter-spacing:5px;animation:ldPulse .7s ease infinite alternate;}
+@keyframes ldSpin{to{transform:rotate(360deg)}}
+@keyframes ldPulse{from{opacity:.3}to{opacity:1}}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;height:60px;
+  background:rgba(15,5,0,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,107,0,.12);
+}
+.nav-logo{
+  font-family:'Bebas Neue',sans-serif;font-size:1.6rem;
+  color:var(--saffron);text-decoration:none;letter-spacing:2px;
+}
+.nav-links{display:flex;gap:8px;align-items:center;}
+.nav-links a{
+  color:rgba(255,255,255,.55);text-decoration:none;
+  font-size:.85rem;font-weight:700;padding:6px 12px;
+  border-radius:8px;transition:all .2s;
+}
+.nav-links a:hover{color:var(--saffron);background:rgba(255,107,0,.1);}
+.nav-order-btn{
+  background:linear-gradient(135deg,var(--saffron),#FF3D00);
+  color:#fff!important;border-radius:10px!important;
+  padding:8px 18px!important;
+  box-shadow:0 4px 16px rgba(255,107,0,.4);
+}
+.nav-order-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(255,107,0,.6)!important;
+  background:linear-gradient(135deg,var(--saffron),#FF3D00)!important;
+  color:#fff!important;
+}
+#hamburger{display:none;background:none;border:none;color:var(--cream);
+  font-size:1.5rem;cursor:pointer;padding:6px;}
+@media(max-width:640px){
+  .nav-links.desktop{display:none;}
+  #hamburger{display:block;}
+}
+.nav-mobile{
+  display:none;position:fixed;top:60px;left:0;right:0;z-index:199;
+  background:rgba(15,5,0,.97);border-bottom:1px solid rgba(255,107,0,.15);
+  flex-direction:column;gap:4px;padding:12px 20px 16px;
+}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{
+  color:rgba(255,255,255,.65);text-decoration:none;
+  font-size:1rem;font-weight:700;padding:10px 12px;
+  border-radius:10px;transition:all .2s;
+}
+.nav-mobile a:hover{color:var(--saffron);background:rgba(255,107,0,.08);}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;padding-top:60px;
+  background:radial-gradient(ellipse at 50% 30%,#3D0C00 0%,var(--dark) 70%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;text-align:center;padding-left:20px;padding-right:20px;
+}
+.hero-watermark{
+  position:absolute;font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(90px,18vw,260px);
+  color:rgba(255,107,0,.045);white-space:nowrap;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;user-select:none;
+  animation:wmdrift 10s ease-in-out infinite alternate;
+}
+@keyframes wmdrift{from{letter-spacing:-3px}to{letter-spacing:8px}}
+
+.float{
+  position:absolute;pointer-events:none;
+  animation:floatY ease-in-out infinite;
+}
+@keyframes floatY{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-28px) rotate(8deg);}
+}
+
+.hero-chip{
+  background:var(--saffron);color:var(--dark);
+  font-family:'Kalam',cursive;font-size:.9rem;font-weight:700;
+  padding:5px 20px;border-radius:99px;
+  display:inline-block;transform:rotate(-2deg);margin-bottom:18px;
+  animation:chipIn .5s cubic-bezier(.34,1.56,.64,1) .7s both;
+}
+@keyframes chipIn{from{opacity:0;transform:rotate(-2deg) scale(.4)}to{opacity:1;transform:rotate(-2deg) scale(1)}}
+
+.hero-h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(72px,16vw,180px);line-height:.88;
+  background:linear-gradient(175deg,#FFB347,#FF6B00,#FFD700,#FF3D00);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 50px rgba(255,107,0,.45));
+  animation:slamIn .7s cubic-bezier(.34,1.56,.64,1) .2s both;
+}
+@keyframes slamIn{from{opacity:0;transform:scale(.25) rotate(-6deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+
+.hero-sub{
+  font-family:'Kalam',cursive;font-size:clamp(1rem,2.5vw,1.4rem);
+  color:var(--turmeric);margin-top:12px;
+  animation:fadeUp 1s ease 1s both;
+}
+.hero-tagline{
+  font-size:clamp(.8rem,1.8vw,1rem);color:rgba(255,255,255,.5);
+  margin-top:8px;font-style:italic;
+  animation:fadeUp 1s ease 1.2s both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-btns{
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  margin-top:36px;animation:fadeUp 1s ease 1.4s both;
+}
+.btn{
+  font-family:'Baloo 2',cursive;font-weight:800;
+  border-radius:14px;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;font-size:1.05rem;
+  transition:all .22s cubic-bezier(.34,1.56,.64,1);border:none;
+}
+.btn-hot{
+  background:linear-gradient(135deg,var(--saffron),#FF3D00);color:#fff;
+  box-shadow:0 8px 28px rgba(255,107,0,.5);
+}
+.btn-hot:hover{transform:translateY(-5px) scale(1.04);box-shadow:0 16px 40px rgba(255,107,0,.7);}
+.btn-outline{
+  background:transparent;color:var(--turmeric);
+  border:2px solid var(--turmeric)!important;
+}
+.btn-outline:hover{background:var(--turmeric);color:var(--dark);transform:translateY(-5px);}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.4);}
+.btn-wa:hover{background:#1da851;transform:translateY(-4px);box-shadow:0 14px 32px rgba(37,211,102,.55);}
+
+/* ── MARQUEE ── */
+.marquee-bar{background:var(--saffron);overflow:hidden;padding:11px 0;}
+.marquee-track{display:flex;gap:48px;animation:scrollL 22s linear infinite;white-space:nowrap;}
+.marquee-track span{
+  font-family:'Bebas Neue',sans-serif;font-size:1.3rem;
+  color:var(--dark);letter-spacing:2px;flex-shrink:0;
+}
+@keyframes scrollL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+section{padding:80px 20px;}
+.sec-title{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,8vw,96px);
+  text-align:center;line-height:1;
+  background:linear-gradient(180deg,var(--cream),var(--turmeric));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px;
+}
+.sec-sub{text-align:center;color:rgba(255,255,255,.4);font-size:.95rem;
+  font-style:italic;margin-bottom:52px;}
+
+/* ── MENU GRID ── */
+.menu-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;max-width:1200px;margin:0 auto;
+}
+.mc{
+  background:linear-gradient(145deg,rgba(255,107,0,.07),rgba(255,255,255,.03));
+  border:1px solid rgba(255,107,0,.18);border-radius:22px;
+  padding:26px;position:relative;overflow:hidden;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  opacity:0;transform:translateY(36px);
+}
+.mc.vis{opacity:1;transform:translateY(0);}
+.mc:hover{
+  transform:translateY(-8px) scale(1.02);
+  border-color:var(--saffron);
+  box-shadow:0 20px 48px rgba(255,107,0,.22);
+}
+.mc-badge{
+  position:absolute;top:14px;right:14px;
+  font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:99px;
+  background:rgba(192,57,43,.25);border:1px solid var(--deep);color:#FF8F8F;
+  letter-spacing:.5px;
+}
+.mc-badge.gold{background:rgba(245,197,24,.15);border-color:var(--turmeric);color:var(--turmeric);}
+.mc-emoji{font-size:52px;display:block;margin-bottom:10px;
+  transition:transform .3s;}
+.mc:hover .mc-emoji{transform:scale(1.18) rotate(8deg);}
+.mc-name{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--saffron);letter-spacing:.5px;}
+.mc-desc{font-size:.88rem;color:rgba(255,255,255,.55);margin:6px 0 12px;line-height:1.6;}
+.spice-row{display:flex;gap:4px;margin-bottom:12px;}
+.sd{width:9px;height:9px;border-radius:50%;background:rgba(255,107,0,.15);}
+.sd.on{background:var(--saffron);}
+.mc-price{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--turmeric);}
+.add-btn{
+  width:100%;margin-top:12px;padding:11px;border:none;border-radius:12px;
+  background:linear-gradient(135deg,var(--saffron),#FF3D00);color:#fff;
+  font-family:'Baloo 2',cursive;font-size:.98rem;font-weight:800;
+  cursor:pointer;transition:all .2s;
+}
+.add-btn:hover{transform:scale(1.04);box-shadow:0 8px 20px rgba(255,107,0,.5);}
+.add-btn:active{transform:scale(.97);}
+.qty-row{
+  display:flex;align-items:center;gap:10px;margin-top:12px;
+}
+.qty-row .qb{
+  width:36px;height:36px;border-radius:10px;border:none;cursor:pointer;
+  font-size:1.1rem;font-weight:800;transition:all .15s;
+  background:rgba(255,107,0,.2);color:var(--saffron);
+}
+.qty-row .qb:hover{background:var(--saffron);color:#fff;}
+.qty-row .qnum{
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;
+  color:var(--turmeric);min-width:24px;text-align:center;
+}
+
+/* ── CART FAB ── */
+#cart-fab{
+  position:fixed;bottom:24px;right:24px;z-index:150;
+  background:linear-gradient(135deg,var(--saffron),#FF3D00);
+  color:#fff;border:none;border-radius:18px;
+  padding:13px 22px;font-family:'Baloo 2',cursive;
+  font-size:.98rem;font-weight:800;cursor:pointer;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 28px rgba(255,107,0,.6);
+  transform:translateY(120px);transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;
+}
+#cart-fab.up{transform:translateY(0);}
+#cart-fab:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(255,107,0,.8);}
+.cfab-badge{
+  background:#fff;color:var(--saffron);
+  border-radius:99px;min-width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.78rem;font-weight:900;padding:0 5px;
+}
+
+/* ── MODAL OVERLAY ── */
+.overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  padding:16px;opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:linear-gradient(145deg,#180800,#2A0D00);
+  border:1px solid rgba(255,107,0,.28);border-radius:26px;
+  padding:36px;width:100%;max-width:540px;
+  max-height:92vh;overflow-y:auto;
+  transform:scale(.82) translateY(32px);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  position:relative;
+}
+.overlay.open .modal{transform:scale(1) translateY(0);}
+.modal-x{
+  position:absolute;top:14px;right:18px;background:none;border:none;
+  color:rgba(255,255,255,.35);font-size:1.7rem;cursor:pointer;
+  transition:color .2s;line-height:1;
+}
+.modal-x:hover{color:#fff;}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--saffron);}
+.modal-hint{font-size:.82rem;color:rgba(255,255,255,.35);margin-top:2px;}
+
+/* Cart items */
+.cart-list{margin:20px 0;}
+.ci{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);
+}
+.ci-name{font-weight:700;font-size:.95rem;}
+.ci-right{display:flex;align-items:center;gap:10px;}
+.ci-qb{
+  width:26px;height:26px;border-radius:7px;border:none;cursor:pointer;
+  background:rgba(255,107,0,.18);color:var(--saffron);
+  font-size:.95rem;font-weight:900;transition:all .15s;
+}
+.ci-qb:hover{background:var(--saffron);color:#fff;}
+.ci-qty{color:var(--turmeric);font-weight:800;min-width:16px;text-align:center;}
+.ci-price{color:rgba(255,255,255,.4);font-size:.88rem;min-width:56px;text-align:right;}
+.cart-empty{
+  text-align:center;padding:30px 0;
+  color:rgba(255,255,255,.25);font-size:.95rem;
+}
+.cart-total{
+  font-family:'Bebas Neue',sans-serif;font-size:1.7rem;
+  color:var(--turmeric);text-align:right;margin:10px 0 20px;
+}
+
+/* Form */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+.fg{margin-bottom:16px;}
+.fl{
+  display:block;font-size:.76rem;font-weight:800;
+  color:rgba(255,255,255,.45);margin-bottom:5px;
+  letter-spacing:1.2px;text-transform:uppercase;
+}
+.fi,.fsel{
+  width:100%;background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,107,0,.22);border-radius:12px;
+  padding:11px 14px;color:var(--cream);
+  font-family:'Baloo 2',cursive;font-size:.95rem;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.fi:focus,.fsel:focus{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,0,.14);}
+.fsel option{background:#1A0800;}
+.fi::placeholder{color:rgba(255,255,255,.2);}
+
+.divider{
+  display:flex;align-items:center;gap:10px;
+  color:rgba(255,255,255,.2);font-size:.8rem;margin:20px 0;
+}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08);}
+
+/* Step indicator */
+.steps{display:flex;gap:0;margin-bottom:24px;}
+.step{
+  flex:1;text-align:center;padding:10px 4px;position:relative;
+  font-size:.72rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.2);transition:color .3s;
+}
+.step::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:3px;background:rgba(255,107,0,.1);border-radius:2px;
+  transition:background .3s;
+}
+.step.active{color:var(--saffron);}
+.step.active::after{background:var(--saffron);}
+.step.done{color:var(--green);}
+.step.done::after{background:var(--green);}
+
+/* Success screen */
+#scr-success{display:none;}
+#scr-success.show{display:block;text-align:center;padding:10px 0;}
+.suc-emoji{font-size:72px;animation:bounce .6s ease infinite alternate;}
+@keyframes bounce{from{transform:scale(1) rotate(-4deg)}to{transform:scale(1.15) rotate(4deg)}}
+.suc-title{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--green);margin:10px 0 6px;}
+.suc-oid{
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
+  color:var(--green);letter-spacing:3px;
+  background:rgba(39,174,96,.12);border:1px solid var(--green);
+  border-radius:12px;padding:10px 24px;display:inline-block;margin:10px 0;
+}
+.suc-note{font-size:.88rem;color:rgba(255,255,255,.4);line-height:1.7;margin:10px 0 20px;}
+
+/* ── HOW IT WORKS ── */
+.how-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;max-width:960px;margin:0 auto;
+}
+.how-card{
+  background:rgba(255,107,0,.05);
+  border:1px solid rgba(255,107,0,.12);border-radius:18px;
+  padding:28px 20px;text-align:center;
+  transition:all .3s;
+}
+.how-card:hover{background:rgba(255,107,0,.1);transform:translateY(-6px);}
+.how-num{
+  font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--saffron);
+  line-height:1;
+}
+.how-icon{font-size:2.2rem;margin:8px 0;}
+.how-title{font-weight:800;font-size:1rem;margin-bottom:6px;}
+.how-desc{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.6;}
+
+/* ── ABOUT ── */
+#about{background:linear-gradient(135deg,rgba(255,107,0,.04),transparent);}
+.about-wrap{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+@media(max-width:680px){.about-wrap{grid-template-columns:1fr;gap:32px;}}
+.about-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.at{
+  background:rgba(255,107,0,.06);border:1px solid rgba(255,107,0,.12);
+  border-radius:16px;padding:18px;text-align:center;font-size:3rem;
+  transition:transform .3s;
+}
+.at:hover{transform:scale(1.06) rotate(4deg);}
+.about-body h2{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.4rem);
+  color:var(--saffron);line-height:1;
+}
+.about-body p{color:rgba(255,255,255,.58);line-height:1.85;margin-top:14px;font-size:.92rem;}
+.hl{color:var(--turmeric);font-weight:800;}
+
+/* ── FOOTER ── */
+footer{
+  background:#080200;border-top:1px solid rgba(255,107,0,.08);
+  padding:40px 20px;text-align:center;
+}
+.ft-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--saffron);letter-spacing:3px;}
+footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height:1.8;}
+
+/* ── SPARKLES ── */
+.spark{
+  position:fixed;pointer-events:none;z-index:9998;font-size:18px;
+  animation:sparkFly .8s ease forwards;
+}
+@keyframes sparkFly{
+  0%{opacity:1;transform:translateY(0) scale(1);}
+  100%{opacity:0;transform:translateY(-70px) scale(.2);}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-emoji">🥙</div>
+  <div class="ld-text">Firing Up The Tadka…</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">🌶 DHAABA 420</a>
+  <div class="nav-links desktop">
+    <a href="#menu">Menu</a>
+    <a href="#how">How It Works</a>
+    <a href="#about">About</a>
+    <a href="#menu" class="nav-order-btn" id="nav-order-btn">🔥 Order Now</a>
+  </div>
+  <button id="hamburger" aria-label="Menu">☰</button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#menu" onclick="closeMob()">Menu</a>
+  <a href="#how" onclick="closeMob()">How It Works</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#menu" onclick="closeMob()" style="color:var(--saffron);font-weight:900;">🔥 Order Now</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-watermark">VADAPAV</div>
+  <span class="float" style="font-size:40px;top:14%;left:7%;animation-duration:4.2s">🥙</span>
+  <span class="float" style="font-size:34px;top:72%;left:6%;animation-duration:5.1s;animation-delay:.8s">🌶️</span>
+  <span class="float" style="font-size:36px;top:18%;right:8%;animation-duration:3.8s;animation-delay:.3s">🧅</span>
+  <span class="float" style="font-size:38px;top:74%;right:9%;animation-duration:6s;animation-delay:1.2s">🍛</span>
+  <span class="float" style="font-size:30px;top:42%;left:3%;animation-duration:4.6s;animation-delay:2s">🌿</span>
+  <span class="float" style="font-size:32px;top:38%;right:4%;animation-duration:3.5s;animation-delay:.6s">✨</span>
+
+  <div class="hero-chip">🎓 IIST TRV Campus · MTech Special · Unofficial But Unmissable</div>
+  <h1 class="hero-h1">DHAABA<br>420</h1>
+  <p class="hero-sub">Authentic Maharashtrian Street Food — Straight from the Heart of Maharashtra 🧡</p>
+  <p class="hero-tagline">Jab mess ka khana thaka de… toh aaja hamare paas. Real Spice. Real Taste. Real Maha.</p>
+  <div class="hero-btns">
+    <a href="#menu" class="btn btn-hot">🔥 Browse Menu & Order</a>
+    <a href="#how" class="btn btn-outline">How It Works</a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>🥙 CRISPY VADA PAV</span><span>🍲 FIERY MISAL PAV</span>
+    <span>🥗 TANGY BHEL PURI</span><span>🌶️ 100% AUTHENTIC</span>
+    <span>🎓 IIST TRV CAMPUS</span><span>📲 ORDER VIA WHATSAPP</span>
+    <span>🧡 MADE WITH LOVE</span><span>⚡ NO BACKEND NEEDED</span>
+    <!-- duplicate for seamless -->
+    <span>🥙 CRISPY VADA PAV</span><span>🍲 FIERY MISAL PAV</span>
+    <span>🥗 TANGY BHEL PURI</span><span>🌶️ 100% AUTHENTIC</span>
+    <span>🎓 IIST TRV CAMPUS</span><span>📲 ORDER VIA WHATSAPP</span>
+    <span>🧡 MADE WITH LOVE</span><span>⚡ NO BACKEND NEEDED</span>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <h2 class="sec-title">THE MENU</h2>
+  <p class="sec-sub">Recipes passed down. Spice locked in. Taste guaranteed. 🌶️</p>
+  <div class="menu-grid" id="menu-grid"></div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="background:linear-gradient(135deg,rgba(255,107,0,.04),transparent);">
+  <h2 class="sec-title">HOW IT WORKS</h2>
+  <p class="sec-sub">Zero backend. Pure WhatsApp. Maximum flavour. 📲</p>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">01</div>
+      <div class="how-icon">🥙</div>
+      <div class="how-title">Pick Your Food</div>
+      <div class="how-desc">Browse the menu, add items to your cart, adjust quantities.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">02</div>
+      <div class="how-icon">📝</div>
+      <div class="how-title">Fill Your Details</div>
+      <div class="how-desc">Name, SC Code & phone — so we know who to hand the packet to.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">03</div>
+      <div class="how-icon">💬</div>
+      <div class="how-title">Send via WhatsApp</div>
+      <div class="how-desc">One tap opens WhatsApp with your full order auto-filled. Just hit Send.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">04</div>
+      <div class="how-icon">💸</div>
+      <div class="how-title">We Send QR / UPI</div>
+      <div class="how-desc">We reply with a payment QR. You pay, we cook, you eat. Done.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-tiles">
+      <div class="at">🥙</div><div class="at">🌶️</div>
+      <div class="at">🍲</div><div class="at">🎓</div>
+    </div>
+    <div class="about-body">
+      <h2>WHY DHAABA 420?</h2>
+      <p>As a <span class="hl">Maharashtra MTech student at IIST TRV</span>, I felt the pain every day — mess food that kills your soul. So I decided to cook up a revolution.</p>
+      <p>Dhaaba 420 is <span class="hl">born from hunger and nostalgia</span>. Every vada is fried crispy. Every misal carries the heat it deserves. Every bhel is a street-food poem from Pune lanes.</p>
+      <p>No fancy backend. <span class="hl">Just order → WhatsApp → pay → eat.</span> Unofficial. Underground. Unmissable. 🔥</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">🌶️ DHAABA 420</div>
+  <p>Authentic Maharashtrian Food · IIST TRV Campus · Made with Spice & Soul</p>
+  <p>Place your order 👇 We reply within minutes on WhatsApp 📲</p>
+  <div style="margin-top:20px;">
+    <a id="footer-wa" class="btn btn-wa" href="#" target="_blank" rel="noopener"
+       style="display:inline-flex;margin:0 auto;text-decoration:none;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+  <p style="margin-top:24px;font-size:.7rem;opacity:.2;">Unofficial. Underground. Unmissable.</p>
+</footer>
+
+<!-- CART FAB -->
+<button id="cart-fab" onclick="openModal('cart')">
+  🛒 Cart
+  <span class="cfab-badge" id="fab-count">0</span>
+</button>
+
+<!-- ══════════ MODAL ══════════ -->
+<div class="overlay" id="overlay" onclick="overlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+
+    <!-- STEP INDICATORS -->
+    <div class="steps" id="modal-steps">
+      <div class="step active" id="ms-0">Cart</div>
+      <div class="step" id="ms-1">Details</div>
+      <div class="step" id="ms-2">Confirm</div>
+    </div>
+
+    <!-- ── SCREEN 1: CART ── -->
+    <div id="scr-cart">
+      <div class="modal-title">🛒 Your Cart</div>
+      <div class="modal-hint">Review your items before checkout</div>
+      <div class="cart-list" id="cart-list"></div>
+      <div class="cart-total" id="cart-total">Total: ₹0</div>
+      <button class="btn btn-hot" style="width:100%;justify-content:center;" onclick="goStep(1)">
+        Proceed to Details →
+      </button>
+    </div>
+
+    <!-- ── SCREEN 2: DETAILS ── -->
+    <div id="scr-details" style="display:none;">
+      <div class="modal-title">📝 Your Details</div>
+      <div class="modal-hint" style="margin-bottom:20px;">So we know it's YOU who deserves this food 😄</div>
+
+      <div class="form-row">
+        <div class="fg">
+          <label class="fl">Full Name *</label>
+          <input class="fi" id="f-name" placeholder="Rahul Deshmukh" autocomplete="name"/>
+        </div>
+        <div class="fg">
+          <label class="fl">SC Code *</label>
+          <input class="fi" id="f-sc" placeholder="SC2024XXX"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="fl">Phone (WhatsApp) *</label>
+          <input class="fi" id="f-phone" placeholder="+91 98765 43210" type="tel" autocomplete="tel"/>
+        </div>
+        <div class="fg">
+          <label class="fl">Programme</label>
+          <select class="fsel" id="f-prog">
+            <option value="">Select…</option>
+            <option>M.Tech</option><option>B.Tech</option>
+            <option>PhD</option><option>MS</option>
+            <option>Faculty / Staff</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">Pickup Time</label>
+        <select class="fsel" id="f-time">
+          <option>ASAP 🔥 (within 30 min)</option>
+          <option>Lunch Slot 12:30–1:30 PM</option>
+          <option>Evening Snacks 4:30–6:00 PM</option>
+          <option>Dinner 7:30–9:00 PM</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Special Requests</label>
+        <input class="fi" id="f-note" placeholder="Extra chutney? Less spice? Write here…"/>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:4px;">
+        <button class="btn btn-outline" style="flex:1;justify-content:center;" onclick="goStep(0)">← Back</button>
+        <button class="btn btn-hot" style="flex:2;justify-content:center;" onclick="goStep(2)">Review Order →</button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 3: CONFIRM ── -->
+    <div id="scr-confirm" style="display:none;">
+      <div class="modal-title">✅ Confirm Order</div>
+      <div class="modal-hint" style="margin-bottom:20px;">One last look before we fire up the kadhai 🔥</div>
+
+      <div id="confirm-summary" style="
+        background:rgba(255,255,255,.04);border:1px solid rgba(255,107,0,.18);
+        border-radius:16px;padding:20px;margin-bottom:20px;font-size:.9rem;line-height:1.9;
+      "></div>
+
+      <div style="
+        background:rgba(37,211,102,.06);border:1px solid rgba(37,211,102,.25);
+        border-radius:14px;padding:16px 18px;margin-bottom:20px;
+        font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;
+      ">
+        📲 <strong style="color:var(--wa);">How payment works:</strong><br>
+        Tap "Send Order on WhatsApp" → Your full order opens in WhatsApp → Send it →<br>
+        We reply with a <strong style="color:var(--turmeric);">UPI QR code</strong> → You pay → We cook → You eat 🙌
+      </div>
+
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-outline" style="flex:1;justify-content:center;font-size:.9rem;" onclick="goStep(1)">← Edit</button>
+        <button class="btn btn-wa" id="wa-send-btn" style="flex:2;justify-content:center;" onclick="sendWhatsApp()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send Order on WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN 4: SUCCESS ── -->
+    <div id="scr-success">
+      <div class="suc-emoji">🎉</div>
+      <div class="suc-title">ORDER SENT!</div>
+      <div class="suc-oid" id="suc-oid">DH-0000</div>
+      <p class="suc-note">
+        Your order message has been sent to WhatsApp!<br>
+        <strong style="color:var(--turmeric);">We'll reply within minutes</strong> with a UPI QR code.<br>
+        Once you pay, we start cooking immediately. 🔥
+      </p>
+      <a id="suc-wa-link" href="#" target="_blank" rel="noopener"
+         class="btn btn-wa" style="width:100%;justify-content:center;text-decoration:none;margin-bottom:10px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Reopen in WhatsApp
+      </a>
+      <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeModal()">
+        Back to Menu 🥙
+      </button>
+    </div>
+
+  </div>
+</div>
+<!-- ═══════════════════════════ -->
+
+<script>
+// ─── MENU DATA ─────────────────────────────────
+const MENU = [
+  { id:1, name:"Vada Pav",       emoji:"🥙", price:30,  spice:3, badge:"BESTSELLER", badgeGold:true,
+    desc:"The OG Maha burger. Crispy potato patty in soft pav with 3 chutneys & fried green chili." },
+  { id:2, name:"Misal Pav",      emoji:"🍲", price:60,  spice:4, badge:"HOUSE SPECIAL", badgeGold:false,
+    desc:"Moth beans rassa with farsan, onion, tomato, coriander. Served with buttered pavs." },
+  { id:3, name:"Bhel Puri",      emoji:"🥗", price:40,  spice:2, badge:"",
+    desc:"Puffed rice, sev, onion, raw mango tossed in tamarind & green chutney. Party in your mouth." },
+  { id:4, name:"Pav Bhaji",      emoji:"🧈", price:70,  spice:2, badge:"",
+    desc:"Spiced mashed veggie curry on butter-roasted pav. Mumbai street staple." },
+  { id:5, name:"Sabudana Vada",  emoji:"🟡", price:40,  spice:1, badge:"",
+    desc:"Crispy tapioca & peanut fritters with coconut chutney. Fasting-friendly, always filling." },
+  { id:6, name:"Dish on Request",emoji:"🍽️", price:0,   spice:0, badge:"CUSTOM", badgeGold:true,
+    desc:"Got a craving? DM us on WhatsApp and we'll make authentic Maha magic happen." },
+];
+
+// ─── CART STATE ────────────────────────────────
+let cart = {}; // { id: qty }
+
+// ─── HELPERS ───────────────────────────────────
+const $  = id => document.getElementById(id);
+const cartTotal = () =>
+  Object.keys(cart).reduce((s,id)=>{ const m=MENU.find(x=>x.id==id); return s+(m.price*cart[id]); }, 0);
+const cartCount = () =>
+  Object.values(cart).reduce((s,v)=>s+v, 0);
+
+// ─── ADD / CHANGE QTY ──────────────────────────
+function addOne(id) {
+  cart[id] = (cart[id]||0) + 1;
+  refreshCard(id);
+  refreshFab();
+}
+function changeQty(id, delta) {
+  cart[id] = Math.max(0, (cart[id]||0) + delta);
+  if (!cart[id]) delete cart[id];
+  refreshCard(id);
+  refreshFab();
+}
+
+function refreshCard(id) {
+  const qty = cart[id] || 0;
+  const addBtn  = document.querySelector(`[data-addbtn="${id}"]`);
+  const qtyRow  = document.querySelector(`[data-qtyrow="${id}"]`);
+  const qnum    = document.querySelector(`[data-qnum="${id}"]`);
+  if (!addBtn) return;
+  if (qty === 0) {
+    addBtn.style.display  = '';
+    qtyRow.style.display  = 'none';
+  } else {
+    addBtn.style.display  = 'none';
+    qtyRow.style.display  = 'flex';
+    qnum.textContent = qty;
+  }
+}
+
+function refreshFab() {
+  const n = cartCount();
+  $('fab-count').textContent = n;
+  n > 0 ? $('cart-fab').classList.add('up') : $('cart-fab').classList.remove('up');
+}
+
+// ─── RENDER MENU ───────────────────────────────
+function renderMenu() {
+  const grid = $('menu-grid');
+  MENU.forEach((item, i) => {
+    const dots = [1,2,3,4].map(n=>`<div class="sd ${n<=item.spice?'on':''}"></div>`).join('');
+    const div = document.createElement('div');
+    div.className = 'mc';
+    div.style.transitionDelay = `${i*.07}s`;
+    div.innerHTML = `
+      ${item.badge?`<div class="mc-badge ${item.badgeGold?'gold':''}">${item.badge}</div>`:''}
+      <span class="mc-emoji">${item.emoji}</span>
+      <div class="mc-name">${item.name}</div>
+      <div class="mc-desc">${item.desc}</div>
+      <div class="spice-row">${dots}</div>
+      <div class="mc-price">${item.price>0?'₹'+item.price:'Price on Request'}</div>
+      ${item.price>0
+        ? `<button class="add-btn" data-addbtn="${item.id}" onclick="addOne(${item.id});spawnSpark(event)">+ Add to Cart</button>
+           <div class="qty-row" data-qtyrow="${item.id}" style="display:none;">
+             <button class="qb" onclick="changeQty(${item.id},-1);spawnSpark(event)">−</button>
+             <span class="qnum" data-qnum="${item.id}">0</span>
+             <button class="qb" onclick="changeQty(${item.id},1);spawnSpark(event)">+</button>
+           </div>`
+        : `<a class="add-btn" style="text-align:center;display:block;text-decoration:none;"
+              href="https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent('Hi! I want to place a custom Maha dish order at Dhaaba 420, IIST TRV 🌶️')}"
+              target="_blank" rel="noopener">💬 Request on WhatsApp</a>`
+      }`;
+    grid.appendChild(div);
+  });
+
+  // Scroll-reveal
+  const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting) e.target.classList.add('vis');}),{threshold:.1});
+  document.querySelectorAll('.mc').forEach(c=>obs.observe(c));
+}
+
+// ─── MODAL / STEPS ─────────────────────────────
+const SCREENS = ['scr-cart','scr-details','scr-confirm','scr-success'];
+let currentStep = 0;
+
+function openModal(scr) {
+  renderCartList();
+  showScreen('scr-cart');
+  currentStep = 0;
+  updateStepUI(0);
+  $('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  $('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function overlayClick(e) { if(e.target === $('overlay')) closeModal(); }
+
+function showScreen(id) {
+  SCREENS.forEach(s=>{ $(s).style.display = s===id?'':'none'; });
+}
+function updateStepUI(step) {
+  [0,1,2].forEach(i=>{
+    const el = $(`ms-${i}`);
+    el.classList.remove('active','done');
+    if(i < step) el.classList.add('done');
+    else if(i === step) el.classList.add('active');
+  });
+  // Hide steps on success
+  $('modal-steps').style.display = step >= 3 ? 'none' : 'flex';
+}
+
+function goStep(step) {
+  if(step === 1) {
+    if(cartCount()===0){ alert('Add something to cart first! 🥙'); return; }
+    showScreen('scr-details');
+    currentStep = 1;
+  } else if(step === 2) {
+    const name  = $('f-name').value.trim();
+    const sc    = $('f-sc').value.trim();
+    const phone = $('f-phone').value.trim();
+    if(!name)  { $('f-name').focus();  alert('Please enter your name 😊'); return; }
+    if(!sc)    { $('f-sc').focus();    alert('Please enter your SC code'); return; }
+    if(!phone) { $('f-phone').focus(); alert('Please enter your WhatsApp number'); return; }
+    buildConfirmSummary();
+    showScreen('scr-confirm');
+    currentStep = 2;
+  } else if(step === 0) {
+    showScreen('scr-cart');
+    renderCartList();
+    currentStep = 0;
+  }
+  updateStepUI(currentStep);
+}
+
+function renderCartList() {
+  const list = $('cart-list');
+  list.innerHTML = '';
+  if(cartCount()===0){
+    list.innerHTML='<div class="cart-empty">Cart is empty. Go pick some food! 🥙</div>';
+    $('cart-total').textContent='Total: ₹0';
+    return;
+  }
+  Object.keys(cart).forEach(id=>{
+    const m = MENU.find(x=>x.id==id);
+    const row = document.createElement('div');
+    row.className='ci';
+    row.innerHTML=`
+      <span class="ci-name">${m.emoji} ${m.name}</span>
+      <div class="ci-right">
+        <button class="ci-qb" onclick="changeQty(${id},-1);renderCartList()">−</button>
+        <span class="ci-qty">${cart[id]}</span>
+        <button class="ci-qb" onclick="changeQty(${id},1);renderCartList()">+</button>
+        <span class="ci-price">₹${m.price*cart[id]}</span>
+      </div>`;
+    list.appendChild(row);
+  });
+  $('cart-total').textContent = `Total: ₹${cartTotal()}`;
+}
+
+function buildConfirmSummary() {
+  const name  = $('f-name').value.trim();
+  const sc    = $('f-sc').value.trim();
+  const phone = $('f-phone').value.trim();
+  const prog  = $('f-prog').value || 'Not specified';
+  const time  = $('f-time').value;
+  const note  = $('f-note').value.trim();
+
+  const itemsHtml = Object.keys(cart).map(id=>{
+    const m=MENU.find(x=>x.id==id);
+    return `<div style="display:flex;justify-content:space-between;">
+      <span>${m.emoji} ${m.name} × ${cart[id]}</span>
+      <span style="color:var(--turmeric);">₹${m.price*cart[id]}</span>
+    </div>`;
+  }).join('');
+
+  $('confirm-summary').innerHTML = `
+    <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08);">
+      ${itemsHtml}
+    </div>
+    <div style="display:flex;justify-content:space-between;font-family:'Bebas Neue';font-size:1.3rem;">
+      <span>TOTAL</span><span style="color:var(--turmeric);">₹${cartTotal()}</span>
+    </div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);
+      font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.9;">
+      👤 <strong style="color:var(--cream);">${name}</strong> &nbsp;|&nbsp;
+      🎓 ${sc} &nbsp;|&nbsp; 📚 ${prog}<br>
+      📞 ${phone}<br>
+      ⏰ ${time}
+      ${note?`<br>📌 <em>${note}</em>`:''}
+    </div>`;
+}
+
+// ─── WHATSAPP ORDER ────────────────────────────
+function sendWhatsApp() {
+  const name  = $('f-name').value.trim();
+  const sc    = $('f-sc').value.trim();
+  const phone = $('f-phone').value.trim();
+  const prog  = $('f-prog').value || 'Not specified';
+  const time  = $('f-time').value;
+  const note  = $('f-note').value.trim();
+
+  const orderId = 'DH-' + (1000 + Math.floor(Math.random()*9000));
+
+  const itemLines = Object.keys(cart).map(id=>{
+    const m = MENU.find(x=>x.id==id);
+    return `  • ${m.emoji} ${m.name} × ${cart[id]}  = ₹${m.price * cart[id]}`;
+  }).join('\n');
+
+  const msg =
+`🌶️ *NEW ORDER — DHAABA 420* 🌶️
+━━━━━━━━━━━━━━━━━━━━
+🆔 *Order ID:* ${orderId}
+━━━━━━━━━━━━━━━━━━━━
+👤 *Name:* ${name}
+🎓 *SC Code:* ${sc}
+📚 *Programme:* ${prog}
+📞 *Phone:* ${phone}
+━━━━━━━━━━━━━━━━━━━━
+🍽️ *Items Ordered:*
+${itemLines}
+━━━━━━━━━━━━━━━━━━━━
+💰 *Total: ₹${cartTotal()}*
+⏰ *Pickup:* ${time}${note ? `\n📌 *Note:* ${note}` : ''}
+━━━━━━━━━━━━━━━━━━━━
+Please confirm & send payment QR. Thank you! 🙏`;
+
+  const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+
+  // Open WhatsApp in new tab
+  window.open(waUrl, '_blank', 'noopener');
+
+  // Update success screen
+  $('suc-oid').textContent = orderId;
+  $('suc-wa-link').href = waUrl;
+
+  // Also update footer button
+  $('footer-wa').href = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent('Hi! I want to order from Dhaaba 420 🌶️')}`;
+
+  // Reset cart
+  cart = {};
+  document.querySelectorAll('.mc').forEach(card => {
+    const id = card.querySelector('[data-addbtn]')?.dataset.addbtn;
+    if(id) refreshCard(id);
+  });
+  refreshFab();
+
+  // Show success
+  showScreen('scr-success');
+  $('scr-success').classList.add('show');
+  updateStepUI(3);
+}
+
+// ─── SPARKLES ──────────────────────────────────
+function spawnSpark(e) {
+  const emojis = ['🌶️','✨','🔥','⚡','🧡','💫','🥙'];
+  for(let i=0;i<6;i++){
+    const el=document.createElement('div');
+    el.className='spark';
+    el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    el.style.left=(e.clientX+(Math.random()-.5)*60)+'px';
+    el.style.top=(e.clientY+(Math.random()-.5)*40+window.scrollY)+'px';
+    el.style.animationDelay=(Math.random()*.25)+'s';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),900);
+  }
+}
+
+// ─── HAMBURGER ─────────────────────────────────
+$('hamburger').addEventListener('click',()=>{
+  $('nav-mobile').classList.toggle('open');
+});
+function closeMob(){ $('nav-mobile').classList.remove('open'); }
+
+// ─── FOOTER WA LINK ────────────────────────────
+$('footer-wa').href = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent('Hi! I want to order from Dhaaba 420 🌶️')}`;
+
+// ─── INIT ──────────────────────────────────────
+window.addEventListener('load',()=>{
+  renderMenu();
+  setTimeout(()=>$('loader').classList.add('gone'), 1600);
+});
+
+// Keyboard close
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
