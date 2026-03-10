@@ -229,9 +229,9 @@ section{padding:80px 20px;}
 .mc:hover .mc-emoji{transform:scale(1.18) rotate(8deg);}
 .mc-name{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--saffron);letter-spacing:.5px;}
 .mc-desc{font-size:.88rem;color:rgba(255,255,255,.55);margin:6px 0 12px;line-height:1.6;}
-.spice-row{display:flex;gap:4px;margin-bottom:12px;}
-.sd{width:9px;height:9px;border-radius:50%;background:rgba(255,107,0,.15);}
-.sd.on{background:var(--saffron);}
+.spice-row{display:none;} 
+.sd{display:none;} 
+.sd.on{display:none;} 
 .mc-price{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--turmeric);}
 .add-btn{
   width:100%;margin-top:12px;padding:11px;border:none;border-radius:12px;
@@ -721,7 +721,7 @@ function renderMenu() {
   const grid = $('menu-grid');
   const todayIsSat = new Date().getDay() === 6; // Saturday = 6
   MENU.forEach((item, i) => {
-    const dots = [1,2,3,4].map(n=>`<div class="sd ${n<=item.spice?'on':''}"></div>`).join('');
+    
     const div = document.createElement('div');
     div.className = 'mc';
     div.style.transitionDelay = `${i*.07}s`;
@@ -752,7 +752,6 @@ function renderMenu() {
       <span class="mc-emoji">${item.emoji}</span>
       <div class="mc-name">${item.name}</div>
       <div class="mc-desc">${item.desc}</div>
-      <div class="spice-row">${dots}</div>
       <div class="mc-price">${item.price>0?'₹'+item.price:'Price on Request'}</div>
       ${actionHtml}`;
     grid.appendChild(div);
