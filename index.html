@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>DHAABA 420 — Authentic Maharashtrian Eats @ IIST TRV</title>
-<meta name="description" content="Crispy Vada Pav, Misal Pav, Bhel & more. Authentic Maharashtrian street food at IIST Thiruvananthapuram campus. Order online, confirm on WhatsApp."/>
+<title>DHAABA 420 — Authentic Maharashtrian Eats @ IIST</title>
+<meta name="description" content="Crispy Vada Pav, Misal Pav, Bhel & more. Authentic Maharashtrian street food at IIST campus. Order online, confirm on WhatsApp."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23cc2200' width='100' height='100' rx='20'/><text x='50' y='65' font-size='60' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'>🌶</text></svg>" type="image/svg+xml"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Baloo+2:wght@400;600;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet"/>
 
@@ -96,6 +97,14 @@ body{
   border-radius:10px;transition:all .2s;
 }
 .nav-mobile a:hover{color:var(--saffron);background:rgba(255,107,0,.08);}
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle{
+  background:rgba(255,107,0,.12);border:1px solid rgba(255,107,0,.25);color:var(--turmeric);
+  border-radius:8px;padding:6px 12px;font-size:.85rem;font-weight:700;
+  cursor:pointer;transition:all .2s;margin-left:8px;
+}
+.lang-toggle:hover{background:rgba(255,107,0,.22);border-color:var(--saffron);}
 
 /* ── HERO ── */
 #hero{
@@ -452,20 +461,21 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
 
 <!-- NAV -->
 <nav id="nav">
-  <a class="nav-logo" href="#hero">🌶 DHAABA 420</a>
+  <a class="nav-logo" href="#hero" data-en="🌶 DHAABA 420" data-mr="🌶 धाबा ४२०">🌶 DHAABA 420</a>
   <div class="nav-links desktop">
-    <a href="#menu">Menu</a>
-    <a href="#how">How It Works</a>
-    <a href="#about">About</a>
-    <a href="#menu" class="nav-order-btn" id="nav-order-btn">🔥 Order Now</a>
+    <a href="#menu" data-en="Menu" data-mr="मेनू">Menu</a>
+    <a href="#how" data-en="How It Works" data-mr="कसे काम करते">How It Works</a>
+    <a href="#about" data-en="About" data-mr="आमच्या बद्दल">About</a>
+    <a href="#menu" class="nav-order-btn" id="nav-order-btn" data-en="🔥 Order Now" data-mr="🔥 ऑर्डर करा">🔥 Order Now</a>
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLanguage()">मराठी</button>
   </div>
   <button id="hamburger" aria-label="Menu">☰</button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
-  <a href="#menu" onclick="closeMob()">Menu</a>
-  <a href="#how" onclick="closeMob()">How It Works</a>
-  <a href="#about" onclick="closeMob()">About</a>
-  <a href="#menu" onclick="closeMob()" style="color:var(--saffron);font-weight:900;">🔥 Order Now</a>
+    <a href="#menu" onclick="closeMob()" data-en="Menu" data-mr="मेनू">Menu</a>
+  <a href="#how" onclick="closeMob()" data-en="How It Works" data-mr="कसे चालते">How It Works</a>
+  <a href="#about" onclick="closeMob()" data-en="About" data-mr="माहिती">About</a>
+    <a href="#menu" onclick="closeMob()" style="color:var(--saffron);font-weight:900;" data-en="🔥 Order Now" data-mr="🔥 ऑर्डर करा">🔥 Order Now</a>
 </div>
 
 <!-- HERO -->
@@ -478,66 +488,66 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
   <span class="float" style="font-size:30px;top:42%;left:3%;animation-duration:4.6s;animation-delay:2s">🌿</span>
   <span class="float" style="font-size:32px;top:38%;right:4%;animation-duration:3.5s;animation-delay:.6s">✨</span>
 
-  <div class="hero-chip">🎓 IIST TRV Campus · MTech Special · Unofficial But Unmissable</div>
-  <h1 class="hero-h1">DHAABA<br>420</h1>
-  <p class="hero-sub">Authentic Maharashtrian Street Food — Straight from the Heart of Maharashtra 🧡</p>
-  <p class="hero-tagline">Jab mess ka khana thaka de… toh aaja hamare paas. Real Spice. Real Taste. Real Maha.</p>
+  <div class="hero-chip" data-en="🎓 IIST Campus · MTech Special" data-mr="🎓 IIST कॅम्पस · एमटेक स्पेशल">🎓 IIST Campus · MTech Special</div>
+  <h1 class="hero-h1" data-en="DHAABA<br>420" data-mr="धाबा<br>४२०" data-html="true">DHAABA<br>420</h1>
+  <p class="hero-sub" data-en="Authentic Maharashtrian Street Food — Straight from the Heart of Maharashtra 🧡" data-mr="अस्सल महाराष्ट्रीयन स्ट्रीट फूड — महाराष्ट्राच्या मनातून थेट तुमच्यासाठी 🧡">Authentic Maharashtrian Street Food — Straight from the Heart of Maharashtra 🧡</p>
+  <p class="hero-tagline" data-en="Jab mess ka khana thaka de… toh aaja hamare paas. Real Spice. Real Taste. Real Maha." data-mr="मेसचं जेवण कंटाळवाणं वाटलं की थेट आमच्याकडे या. अस्सल मसाला. अस्सल चव. अस्सल महाराष्ट्र.">Jab mess ka khana thaka de… toh aaja hamare paas. Real Spice. Real Taste. Real Maha.</p>
   <div class="hero-btns">
-    <a href="#menu" class="btn btn-hot">🔥 Browse Menu & Order</a>
-    <a href="#how" class="btn btn-outline">How It Works</a>
+    <a href="#menu" class="btn btn-hot" data-en="🔥 Browse Menu & Order" data-mr="🔥 मेनू पहा आणि ऑर्डर करा">🔥 Browse Menu & Order</a>
+    <a href="#how" class="btn btn-outline" data-en="How It Works" data-mr="कसे चालते">How It Works</a>
   </div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marquee-bar">
   <div class="marquee-track">
-    <span>🥙 CRISPY VADA PAV</span><span>🍲 FIERY MISAL PAV</span>
-    <span>🥗 TANGY BHEL PURI</span><span>🌶️ 100% AUTHENTIC</span>
-    <span>🎓 IIST TRV CAMPUS</span><span>📲 ORDER VIA WHATSAPP</span>
-    <span>🧡 MADE WITH LOVE</span><span>⚡ NO BACKEND NEEDED</span>
+    <span data-en="🥙 CRISPY VADA PAV" data-mr="🥙 कुरकुरीत वडापाव">🥙 CRISPY VADA PAV</span><span data-en="🍲 FIERY MISAL PAV" data-mr="🍲 झणझणीत मिसळ पाव">🍲 FIERY MISAL PAV</span>
+    <span data-en="🥗 TANGY BHEL" data-mr="🥗 चटकदार भेळ">🥗 TANGY BHEL</span><span data-en="🌶️ 100% AUTHENTIC" data-mr="🌶️ १००% अस्सल चव">🌶️ 100% AUTHENTIC</span>
+    <span data-en="🎓 IIST CAMPUS" data-mr="🎓 IIST कॅम्पस">🎓 IIST CAMPUS</span><span data-en="📲 ORDER VIA WHATSAPP" data-mr="📲 व्हाट्सअॅपवर ऑर्डर करा">📲 ORDER VIA WHATSAPP</span>
+    <span data-en="🧡 MADE WITH LOVE" data-mr="🧡 प्रेमाने बनवलेले">🧡 MADE WITH LOVE</span><span data-en="🔥 REAL MAHARASHTRIAN TASTE" data-mr="🔥 अस्सल महाराष्ट्रीयन चव">🔥 REAL MAHARASHTRIAN TASTE</span>
     <!-- duplicate for seamless -->
-    <span>🥙 CRISPY VADA PAV</span><span>🍲 FIERY MISAL PAV</span>
-    <span>🥗 TANGY BHEL PURI</span><span>🌶️ 100% AUTHENTIC</span>
-    <span>🎓 IIST TRV CAMPUS</span><span>📲 ORDER VIA WHATSAPP</span>
-    <span>🧡 MADE WITH LOVE</span><span>⚡ NO BACKEND NEEDED</span>
+    <span data-en="🥙 CRISPY VADA PAV" data-mr="🥙 कुरकुरीत वडापाव">🥙 CRISPY VADA PAV</span><span data-en="🍲 FIERY MISAL PAV" data-mr="🍲 झणझणीत मिसळ पाव">🍲 FIERY MISAL PAV</span>
+    <span data-en="🥗 TANGY BHEL" data-mr="🥗 चटकदार भेळ">🥗 TANGY BHEL</span><span data-en="🌶️ 100% AUTHENTIC" data-mr="🌶️ १००% अस्सल चव">🌶️ 100% AUTHENTIC</span>
+    <span data-en="🎓 IIST CAMPUS" data-mr="🎓 IIST कॅम्पस">🎓 IIST CAMPUS</span><span data-en="📲 ORDER VIA WHATSAPP" data-mr="📲 व्हाट्सअॅपवर ऑर्डर करा">📲 ORDER VIA WHATSAPP</span>
+    <span data-en="🧡 MADE WITH LOVE" data-mr="🧡 प्रेमाने बनवलेले">🧡 MADE WITH LOVE</span><span data-en="🔥 REAL MAHARASHTRIAN TASTE" data-mr="🔥 अस्सल महाराष्ट्रीयन चव">🔥 REAL MAHARASHTRIAN TASTE</span>
   </div>
 </div>
 
 <!-- MENU -->
 <section id="menu">
-  <h2 class="sec-title">THE MENU</h2>
-  <p class="sec-sub">Recipes passed down. Spice locked in. Taste guaranteed. 🌶️</p>
+  <h2 class="sec-title" data-en="THE MENU" data-mr="मेनू">THE MENU</h2>
+  <p class="sec-sub" data-en="Recipes passed down. Spice locked in. Taste guaranteed. 🌶️" data-mr="पिढ्यान् पिढ्या चालत आलेल्या रेसिपीज. मसाला तसाच. चव हमखास. 🌶️">Recipes passed down. Spice locked in. Taste guaranteed. 🌶️</p>
   <div class="menu-grid" id="menu-grid"></div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section id="how" style="background:linear-gradient(135deg,rgba(255,107,0,.04),transparent);">
-  <h2 class="sec-title">HOW IT WORKS</h2>
-  <p class="sec-sub">Zero backend. Pure WhatsApp. Maximum flavour. 📲</p>
+  <h2 class="sec-title" data-en="HOW IT WORKS" data-mr="कसे चालते">HOW IT WORKS</h2>
+  <p class="sec-sub" data-en="Zero backend. Pure WhatsApp. Maximum flavour. 📲" data-mr="कोणताही बॅकएंड नाही. शुद्ध व्हाट्सअँप. कमाल चव. 📲">Zero backend. Pure WhatsApp. Maximum flavour. 📲</p>
   <div class="how-grid">
     <div class="how-card">
       <div class="how-num">01</div>
       <div class="how-icon">🥙</div>
-      <div class="how-title">Pick Your Food</div>
-      <div class="how-desc">Browse the menu, add items to your cart, adjust quantities.</div>
+      <div class="how-title" data-en="Pick Your Food" data-mr="तुमचा पदार्थ निवडा">Pick Your Food</div>
+      <div class="how-desc" data-en="Browse the menu, add items to your cart, adjust quantities." data-mr="मेनू पाहा, पदार्थ कार्टमध्ये जोडा आणि प्रमाण बदला.">Browse the menu, add items to your cart, adjust quantities.</div>
     </div>
     <div class="how-card">
       <div class="how-num">02</div>
       <div class="how-icon">📝</div>
-      <div class="how-title">Fill Your Details</div>
-      <div class="how-desc">Name, SC Code & phone — so we know who to hand the packet to.</div>
+      <div class="how-title" data-en="Fill Your Details" data-mr="आपली माहिती भरा">Fill Your Details</div>
+      <div class="how-desc" data-en="Name and SC Code — so we know who to hand the packet to." data-mr="नाव आणि एससी कोड भरा, म्हणजे ऑर्डर कोणाला द्यायची हे आम्हाला समजेल.">Name, SC Code & phone — so we know who to hand the packet to.</div>
     </div>
     <div class="how-card">
       <div class="how-num">03</div>
       <div class="how-icon">💬</div>
-      <div class="how-title">Send via WhatsApp</div>
-      <div class="how-desc">One tap opens WhatsApp with your full order auto-filled. Just hit Send.</div>
+      <div class="how-title" data-en="Send via WhatsApp" data-mr="व्हाट्सअँप द्वारे पाठवा">Send via WhatsApp</div>
+      <div class="how-desc" data-en="One tap opens WhatsApp with your full order auto-filled. Just hit Send." data-mr="एक टॅप करा आणि तुमची संपूर्ण ऑर्डर व्हाट्सअॅपवर तयार दिसेल. फक्त पाठवा दाबा.">One tap opens WhatsApp with your full order auto-filled. Just hit Send.</div>
     </div>
     <div class="how-card">
       <div class="how-num">04</div>
       <div class="how-icon">💸</div>
-      <div class="how-title">We Send QR / UPI</div>
-      <div class="how-desc">We reply with a payment QR. You pay, we cook, you eat. Done.</div>
+      <div class="how-title" data-en="We Send QR / UPI" data-mr="आम्ही QR / UPI पाठवतो">We Send QR / UPI</div>
+      <div class="how-desc" data-en="We reply with a payment QR. You pay, we cook, you eat. Done." data-mr="आम्ही पेमेंटसाठी QR पाठवतो. तुम्ही पैसे भरा, आम्ही बनवतो, आणि तुम्ही मजेत खा. बस्स.">We reply with a payment QR. You pay, we cook, you eat. Done.</div>
     </div>
   </div>
 </section>
@@ -550,32 +560,32 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
       <div class="at">🍲</div><div class="at">🎓</div>
     </div>
     <div class="about-body">
-      <h2>WHY DHAABA 420?</h2>
-      <p>As a <span class="hl">Maharashtra MTech student at IIST TRV</span>, I felt the pain every day — mess food that kills your soul. So I decided to cook up a revolution.</p>
-      <p>Dhaaba 420 is <span class="hl">born from hunger and nostalgia</span>. Every vada is fried crispy. Every misal carries the heat it deserves. Every bhel is a street-food poem from Pune lanes.</p>
-      <p>No fancy backend. <span class="hl">Just order → WhatsApp → pay → eat.</span> Unofficial. Underground. Unmissable. 🔥</p>
+      <h2 data-en="WHY DHAABA 420?" data-mr="धाबा ४२० का?">WHY DHAABA 420?</h2>
+      <p data-en="As a Maharashtra MTech student at IIST, I felt the pain every day — mess food that kills your soul. So I decided to cook up a revolution." data-mr="IIST मध्ये शिकणारा महाराष्ट्रातून आलेला एमटेक विद्यार्थी म्हणून, मेसच्या बेचव जेवणाचा त्रास मला रोज जाणवत होता. म्हणून काहीतरी वेगळं आणि जिव्हाळ्याचं खायला द्यायचं ठरवलं." data-html="true">As a <span class="hl">Maharashtra MTech student at IIST</span>, I felt the pain every day — mess food that kills your soul. So I decided to cook up a revolution.</p>
+      <p data-en="Dhaaba 420 is born from hunger and nostalgia. Every vada is fried crispy. Every misal carries the heat it deserves. Every bhel is a street-food poem from Pune lanes." data-mr="धाबा ४२०चा जन्म भूक आणि आठवणींतून झाला. प्रत्येक वडा कुरकुरीत तळलेला असतो. प्रत्येक मिसळीला तिची योग्य झणझणीत चव असते. आणि प्रत्येक भेळीत पुणेरी रस्त्यांची आठवण दडलेली असते." data-html="true">Dhaaba 420 is <span class="hl">born from hunger and nostalgia</span>. Every vada is fried crispy. Every misal carries the heat it deserves. Every bhel is a street-food poem from Pune lanes.</p>
+      <p data-en="No fancy backend. Just order → WhatsApp → Pay → Eat. Underground. Unmissable. 🔥" data-mr="कसलाही फाजील बॅकएंड नाही. फक्त ऑर्डर करा → व्हाट्सअॅप करा → पैसे भरा → मजेत खा. हटके. चुकवू नका. 🔥" data-html="true">No fancy backend. <span class="hl">Just order → WhatsApp → pay → eat.</span> Underground. Unmissable. 🔥</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-logo">🌶️ DHAABA 420</div>
-  <p>Authentic Maharashtrian Food · IIST TRV Campus · Made with Spice & Soul</p>
-  <p>Place your order 👇 We reply within minutes on WhatsApp 📲</p>
+  <div class="ft-logo" data-en="🌶️ DHAABA 420" data-mr="🌶️ धाबा ४२०">🌶️ DHAABA 420</div>
+  <p style="color:#ffffff;" data-en="Authentic Maharashtrian Food · IIST Campus · Made with Spice & Soul" data-mr="अस्सल महाराष्ट्रीयन खाद्य · IIST कॅम्पस · प्रेम आणि मसाल्याने बनवलेले">Authentic Maharashtrian Food · IIST Campus · Made with Spice & Soul</p>
+  <p style="color:#ffffff;" data-en="Place your order 👇 We reply within minutes on WhatsApp 📲" data-mr="तुमची ऑर्डर द्या 👇 आम्ही काही मिनिटांत व्हाट्सअॅपवर उत्तर देऊ 📲">Place your order 👇 We reply within minutes on WhatsApp 📲</p>
   <div style="margin-top:20px;">
     <a id="footer-wa" class="btn btn-wa" href="#" target="_blank" rel="noopener"
        style="display:inline-flex;margin:0 auto;text-decoration:none;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Chat on WhatsApp
+      <span data-en="Chat on WhatsApp" data-mr="व्हाट्सअॅपवर संपर्क करा">Chat on WhatsApp</span>
     </a>
   </div>
-  <p style="margin-top:24px;font-size:.7rem;opacity:.2;">Unofficial. Underground. Unmissable.</p>
+  <p style="margin-top:24px;font-size:.7rem;opacity:.2;" data-en="Underground. Unmissable." data-mr="हटके. चुकवू नका.">Underground. Unmissable.</p>
 </footer>
 
 <!-- CART FAB -->
 <button id="cart-fab" onclick="openModal('cart')">
-  🛒 Cart
+  <span data-en="🛒 Cart" data-mr="🛒 कार्ट">🛒 Cart</span>
   <span class="cfab-badge" id="fab-count">0</span>
 </button>
 
@@ -586,55 +596,55 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
 
     <!-- STEP INDICATORS -->
     <div class="steps" id="modal-steps">
-      <div class="step active" id="ms-0">Cart</div>
-      <div class="step" id="ms-1">Details</div>
-      <div class="step" id="ms-2">Confirm</div>
+      <div class="step active" id="ms-0" data-en="Cart" data-mr="कार्ट">Cart</div>
+      <div class="step" id="ms-1" data-en="Details" data-mr="माहिती">Details</div>
+      <div class="step" id="ms-2" data-en="Confirm" data-mr="पुष्टी">Confirm</div>
     </div>
 
     <!-- ── SCREEN 1: CART ── -->
     <div id="scr-cart">
-      <div class="modal-title">🛒 Your Cart</div>
-      <div class="modal-hint">Review your items before checkout</div>
+      <div class="modal-title" data-en="🛒 Your Cart" data-mr="🛒 तुमचे कार्ट">🛒 Your Cart</div>
+      <div class="modal-hint" data-en="Review your items before checkout" data-mr="चेकआउट करण्यापूर्वी तुमचे पदार्थ पाहा">Review your items before checkout</div>
       <div class="cart-list" id="cart-list"></div>
       <div class="cart-total" id="cart-total">Total: ₹0</div>
-      <button class="btn btn-hot" style="width:100%;justify-content:center;" onclick="goStep(1)">
+      <button class="btn btn-hot" style="width:100%;justify-content:center;" onclick="goStep(1)" data-en="Proceed to Details →" data-mr="माहितीकडे जा →">
         Proceed to Details →
       </button>
     </div>
 
     <!-- ── SCREEN 2: DETAILS ── -->
     <div id="scr-details" style="display:none;">
-      <div class="modal-title">📝 Your Details</div>
-      <div class="modal-hint" style="margin-bottom:20px;">So we know it's YOU who deserves this food 😄</div>
+      <div class="modal-title" data-en="📝 Your Details" data-mr="📝 तुमची माहिती">📝 Your Details</div>
+      <div class="modal-hint" style="margin-bottom:20px;" data-en="So we know it's YOU who deserves this food 😄" data-mr="ही ऑर्डर नक्की कोणासाठी आहे ते आम्हाला कळावं म्हणून 😄">So we know it's YOU who deserves this food 😄</div>
 
       <div class="form-row">
         <div class="fg">
-          <label class="fl">Full Name *</label>
+          <label class="fl" data-en="Full Name *" data-mr="पूर्ण नाव *">Full Name *</label>
           <input class="fi" id="f-name" placeholder="Rahul Deshmukh" autocomplete="name"/>
         </div>
         <div class="fg">
-          <label class="fl">SC Code *</label>
+          <label class="fl" data-en="SC Code *" data-mr="एससी कोड *">SC Code *</label>
           <input class="fi" id="f-sc" placeholder="SC2024XXX"/>
         </div>
       </div>
 
       <div style="display:flex;gap:10px;margin-top:4px;">
-        <button class="btn btn-outline" style="flex:1;justify-content:center;" onclick="goStep(0)">← Back</button>
-        <button class="btn btn-hot" style="flex:2;justify-content:center;" onclick="goStep(2)">Review Order →</button>
+        <button class="btn btn-outline" style="flex:1;justify-content:center;" onclick="goStep(0)" data-en="← Back" data-mr="← मागे">← Back</button>
+        <button class="btn btn-hot" style="flex:2;justify-content:center;" onclick="goStep(2)" data-en="Review Order →" data-mr="ऑर्डर पाहा →">Review Order →</button>
       </div>
     </div>
 
     <!-- ── SCREEN 3: CONFIRM ── -->
     <div id="scr-confirm" style="display:none;">
-      <div class="modal-title">✅ Confirm Order</div>
-      <div class="modal-hint" style="margin-bottom:20px;">One last look before we fire up the kadhai 🔥</div>
+      <div class="modal-title" data-en="✅ Confirm Order" data-mr="✅ ऑर्डरची पुष्टी">✅ Confirm Order</div>
+      <div class="modal-hint" style="margin-bottom:20px;" data-en="One last look before we fire up the kadhai 🔥" data-mr="कढई तापवण्यापूर्वी एकदा शेवटचं पाहून घ्या 🔥">One last look before we fire up the kadhai 🔥</div>
 
       <div id="confirm-summary" style="
         background:rgba(255,255,255,.04);border:1px solid rgba(255,107,0,.18);
         border-radius:16px;padding:20px;margin-bottom:20px;font-size:.9rem;line-height:1.9;
       "></div>
 
-      <div style="
+      <div id="payment-info" style="
         background:rgba(37,211,102,.06);border:1px solid rgba(37,211,102,.25);
         border-radius:14px;padding:16px 18px;margin-bottom:20px;
         font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;
@@ -645,10 +655,10 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
       </div>
 
       <div style="display:flex;gap:10px;">
-        <button class="btn btn-outline" style="flex:1;justify-content:center;font-size:.9rem;" onclick="goStep(1)">← Edit</button>
+        <button class="btn btn-outline" style="flex:1;justify-content:center;font-size:.9rem;" onclick="goStep(1)" data-en="← Edit" data-mr="← बदल करा">← Edit</button>
         <button class="btn btn-wa" id="wa-send-btn" style="flex:2;justify-content:center;" onclick="sendWhatsApp()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Send Order on WhatsApp
+          <span data-en="Send Order on WhatsApp" data-mr="व्हाट्सअॅपवर ऑर्डर पाठवा">Send Order on WhatsApp</span>
         </button>
       </div>
     </div>
@@ -656,9 +666,9 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
     <!-- ── SCREEN 4: SUCCESS ── -->
     <div id="scr-success">
       <div class="suc-emoji">🎉</div>
-      <div class="suc-title">ORDER SENT!</div>
+      <div class="suc-title" data-en="ORDER SENT!" data-mr="ऑर्डर पाठवली!">ORDER SENT!</div>
       <div class="suc-oid" id="suc-oid">DH-0000</div>
-      <p class="suc-note">
+      <p class="suc-note" id="success-note">
         Your order message has been sent to WhatsApp!<br>
         <strong style="color:var(--turmeric);">We'll reply within minutes</strong> with a UPI QR code.<br>
         Once you pay, we start cooking immediately. 🔥
@@ -666,9 +676,9 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
       <a id="suc-wa-link" href="#" target="_blank" rel="noopener"
          class="btn btn-wa" style="width:100%;justify-content:center;text-decoration:none;margin-bottom:10px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Reopen in WhatsApp
+        <span data-en="Reopen in WhatsApp" data-mr="व्हाट्सअॅप पुन्हा उघडा">Reopen in WhatsApp</span>
       </a>
-      <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeModal()">
+      <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeModal()" data-en="Back to Menu 🥙" data-mr="मेनूकडे परत जा 🥙">
         Back to Menu 🥙
       </button>
     </div>
@@ -680,27 +690,32 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
 <script>
 // ─── MENU DATA ─────────────────────────────────
 const MENU = [
-  { id:1, name:"Vadapav",         emoji:"🥙", price:19,  spice:3, badge:"BESTSELLER", badgeGold:true,
-    desc:"Crispy potato patty in soft pav with chutney & fried green chili." },
-  { id:2, name:"Misal Pav",      emoji:"🍲", price:59,  spice:4, badge:"HOUSE SPECIAL", badgeGold:false,
-    desc:"Moth beans rassa with farsan, onion, tomato, coriander. Get Tari as a side." },
-  { id:3, name:"Bhel",           emoji:"🥗", price:49,  spice:2, badge:"",
-    desc:"Puffed rice, sev, onion, farsan tossed in tamarind & green chutney. Party in your mouth." },
-  { id:4, name:"Sabudana Vada",  emoji:"🟡", price:39,  spice:1, badge:"SAT ONLY", badgeGold:false,
-    desc:"Two Pieces - Available on Saturdays only." },
-  { id:5, name:"Pasta",          emoji:"🍝", price:69,  spice:1, badge:"",
-    desc:"Tomato pasta with local spices — comfort in a bowl." },
-  { id:6, name:"Chana Masala",   emoji:"🫘", price:69,  spice:3, badge:"",
-    desc:"Maharashtrian-style Dry Chana Masala with bold masala flavour." },
-  { id:7, name:"Dish on Request",emoji:"🍽️", price:0,   spice:0, badge:"CUSTOM", badgeGold:true,
-    desc:"Got a craving? DM us on WhatsApp and we'll make authentic Maha magic happen." },
+  { id:1, name:"Vadapav", nameMr:"वडापाव", emoji:"🥙", price:19, spice:3, badge:"BESTSELLER", badgeMr:"सर्वाधिक लोकप्रिय", badgeGold:true,
+    desc:"Crispy potato patty in soft pav with chutney & fried green chili.", descMr:"मऊ पावात कुरकुरीत बटाट्याचा वडा, चटणी आणि तळलेल्या हिरव्या मिरचीसह." },
+  { id:2, name:"Misal Pav", nameMr:"मिसळ पाव", emoji:"🍲", price:59, spice:4, badge:"HOUSE SPECIAL", badgeMr:"खास पदार्थ", badgeGold:false,
+    desc:"Moth beans rassa with farsan, onion, tomato, coriander. Get Tari as a side.", descMr:"मटकीचा रस्सा, फरसाण, कांदा, टोमॅटो आणि कोथिंबीर यांसह. बाजूला तर्री मिळेल." },
+  { id:3, name:"Bhel", nameMr:"भेळ", emoji:"🥗", price:49, spice:2, badge:"FLAVOURFUL", badgeMr:"चटकदार", badgeGold:false,
+    desc:"Puffed rice, sev, onion, farsan tossed in tamarind & green chutney.", descMr:"चिंचेची आणि हिरव्या चटणीची चव असलेली चुरमुरे, शेव, कांदा आणि फरसाण यांची मस्त भेळ." },
+  { id:4, name:"Sabudana Vada", nameMr:"साबुदाणा वडा - २ नग", emoji:"🟡", price:39, spice:1, badge:"SAT ONLY", badgeMr:"फक्त शनिवारी", badgeGold:false,
+    desc:"Two Pieces - Available on Saturdays.", descMr:"दोन नग - फक्त शनिवारी उपलब्ध." },
+  { id:5, name:"Pasta", nameMr:"पास्ता", emoji:"🍝", price:69, spice:1, badge:"WESTERN", badgeMr:"वेस्टर्न", badgeGold:false,
+    desc:"Tomato pasta with local spices — comfort in a bowl.", descMr:"टोमॅटो पास्ता, स्थानिक मसाल्यांच्या चवीसह — आरामदायी आणि स्वादिष्ट." },
+  { id:6, name:"Chana Masala", nameMr:"चना मसाला", emoji:"🫘", price:69, spice:3, badge:"SPICY CLASSIC", badgeMr:"झणझणीत क्लासिक", badgeGold:false,
+    desc:"Maharashtrian-style Dry Chana Masala with bold masala flavour.", descMr:"महाराष्ट्रीयन शैलीतील सुका चणा मसाला — ठसकेबाज मसाल्याच्या चवीसह." },
+  { id:7, name:"Dish on Request", nameMr:"आवडीनुसार पदार्थ", emoji:"🍽️", price:0, spice:0, badge:"CUSTOM", badgeMr:"मागणीनुसार", badgeGold:true,
+    desc:"Got a craving? DM us on WhatsApp and we'll make authentic Maha magic happen.", descMr:"काही खास खायची इच्छा आहे? आम्हाला व्हाट्सअॅपवर मेसेज करा, आम्ही तुमच्यासाठी खास पदार्थ बनवू." },
 ];
 
 // ─── CART STATE ────────────────────────────────
 let cart = {}; // { id: qty }
+let currentLang = localStorage.getItem('dhaaba-lang') || 'en';
 
 // ─── HELPERS ───────────────────────────────────
 const $  = id => document.getElementById(id);
+const t = (en, mr) => currentLang === 'mr' ? mr : en;
+const itemName = item => currentLang === 'mr' ? item.nameMr : item.name;
+const itemDesc = item => currentLang === 'mr' ? item.descMr : item.desc;
+const itemBadge = item => currentLang === 'mr' ? item.badgeMr : item.badge;
 const cartTotal = () =>
   Object.keys(cart).reduce((s,id)=>{ const m=MENU.find(x=>x.id==id); return s+(m.price*cart[id]); }, 0);
 const cartCount = () =>
@@ -744,8 +759,49 @@ function refreshFab() {
   else $('cart-fab').classList.remove('up');
 }
 
+function applyLanguage() {
+  document.documentElement.lang = currentLang === 'mr' ? 'mr' : 'en';
+  document.querySelectorAll('[data-en][data-mr]').forEach(el => {
+    const value = currentLang === 'mr' ? el.dataset.mr : el.dataset.en;
+    if (el.dataset.html === 'true') el.innerHTML = value;
+    else el.textContent = value;
+  });
+
+  $('lang-toggle').textContent = currentLang === 'mr' ? 'English' : 'मराठी';
+  $('f-name').placeholder = currentLang === 'mr' ? 'राहुल देशमुख' : 'Rahul Deshmukh';
+  $('f-sc').placeholder = currentLang === 'mr' ? 'SC2024XXX' : 'SC2024XXX';
+
+  $('cart-total').textContent = `${t('Total', 'एकूण')}: ₹${cartTotal()}`;
+  $('payment-info').innerHTML = currentLang === 'mr'
+    ? `📲 <strong style="color:var(--wa);">पेमेंट कसे होईल:</strong><br>
+       &quot;व्हाट्सअॅपवर ऑर्डर पाठवा&quot; वर टॅप करा → तुमची ऑर्डर व्हाट्सअॅपमध्ये उघडेल → पाठवा →<br>
+       आम्ही <strong style="color:var(--turmeric);">UPI QR कोड</strong> पाठवू → तुम्ही पैसे भरा → आम्ही बनवू → तुम्ही मजेत खा 🙌`
+    : `📲 <strong style="color:var(--wa);">How payment works:</strong><br>
+       Tap "Send Order on WhatsApp" → Your full order opens in WhatsApp → Send it →<br>
+       We reply with a <strong style="color:var(--turmeric);">UPI QR code</strong> → You pay → We cook → You eat 🙌`;
+
+  $('success-note').innerHTML = currentLang === 'mr'
+    ? `तुमचा ऑर्डर मेसेज व्हाट्सअॅपवर पाठवला गेला आहे!<br>
+       <strong style="color:var(--turmeric);">आम्ही काही मिनिटांत उत्तर देऊ</strong> आणि UPI QR कोड पाठवू.<br>
+       पैसे मिळताच आम्ही लगेच बनवायला सुरुवात करू. 🔥`
+    : `Your order message has been sent to WhatsApp!<br>
+       <strong style="color:var(--turmeric);">We'll reply within minutes</strong> with a UPI QR code.<br>
+       Once you pay, we start cooking immediately. 🔥`;
+
+  renderMenu();
+  renderCartList();
+  if (currentStep === 2) buildConfirmSummary();
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === 'en' ? 'mr' : 'en';
+  localStorage.setItem('dhaaba-lang', currentLang);
+  applyLanguage();
+}
+
 function renderMenu() {
   const grid = $('menu-grid');
+  grid.innerHTML = '';
   MENU.forEach((item, i) => {
     
     const div = document.createElement('div');
@@ -762,18 +818,22 @@ function renderMenu() {
          </div>`;
     } else {
       actionHtml = `<a class="add-btn" style="text-align:center;display:block;text-decoration:none;"
-              href="https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent('Hi! I want to place a custom Maha dish order at Dhaaba 420, IIST TRV 🌶️') }"
-              target="_blank" rel="noopener">💬 Request on WhatsApp</a>`;
+              href="https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent('Hi! I want to place a custom Maha dish order at Dhaaba 420, IIST 🌶️') }"
+              target="_blank" rel="noopener">${t('💬 Request on WhatsApp', '💬 व्हाट्सअॅपवर विचारा')}</a>`;
     }
 
     div.innerHTML = `
-      ${item.badge?`<div class="mc-badge ${item.badgeGold?'gold':''}">${item.badge}</div>`:''}
+      ${itemBadge(item)?`<div class="mc-badge ${item.badgeGold?'gold':''}">${itemBadge(item)}</div>`:''}
       <span class="mc-emoji">${item.emoji}</span>
-      <div class="mc-name">${item.name}</div>
-      <div class="mc-desc">${item.desc}</div>
-      <div class="mc-price">${item.price>0?'₹'+item.price:'Price on Request'}</div>
+      <div class="mc-name">${itemName(item)}</div>
+      <div class="mc-desc">${itemDesc(item)}</div>
+      <div class="mc-price">${item.price>0?'₹'+item.price:t('Price on Request','किंमत विचारून')}</div>
       ${actionHtml}`;
     grid.appendChild(div);
+  });
+
+  document.querySelectorAll('[data-addbtn]').forEach(btn => {
+    btn.textContent = t('+ Add to Cart', '+ कार्टमध्ये जोडा');
   });
 
   // Scroll-reveal
@@ -816,14 +876,14 @@ function updateStepUI(step) {
 
 function goStep(step) {
   if(step === 1) {
-    if(cartCount()===0){ alert('Add something to cart first! 🥙'); return; }
+    if(cartCount()===0){ alert(t('Add something to cart first! 🥙', 'आधी कार्टमध्ये काहीतरी जोडा! 🥙')); return; }
     showScreen('scr-details');
     currentStep = 1;
   } else if(step === 2) {
     const name  = $('f-name').value.trim();
     const sc    = $('f-sc').value.trim();
-    if(!name)  { $('f-name').focus();  alert('Please enter your name 😊'); return; }
-    if(!sc)    { $('f-sc').focus();    alert('Please enter your SC code'); return; }
+    if(!name)  { $('f-name').focus();  alert(t('Please enter your name 😊', 'कृपया तुमचे नाव भरा 😊')); return; }
+    if(!sc)    { $('f-sc').focus();    alert(t('Please enter your SC code', 'कृपया तुमचा एससी कोड भरा')); return; }
     buildConfirmSummary();
     showScreen('scr-confirm');
     currentStep = 2;
@@ -839,8 +899,8 @@ function renderCartList() {
   const list = $('cart-list');
   list.innerHTML = '';
   if(cartCount()===0){
-    list.innerHTML='<div class="cart-empty">Cart is empty. Go pick some food! 🥙</div>';
-    $('cart-total').textContent='Total: ₹0';
+    list.innerHTML=`<div class="cart-empty">${t('Cart is empty. Go pick some food! 🥙', 'कार्ट रिकामं आहे. काहीतरी चविष्ट निवडा! 🥙')}</div>`;
+    $('cart-total').textContent=`${t('Total', 'एकूण')}: ₹0`;
     return;
   }
   Object.keys(cart).forEach(id=>{
@@ -848,7 +908,7 @@ function renderCartList() {
     const row = document.createElement('div');
     row.className='ci';
     row.innerHTML=`
-      <span class="ci-name">${m.emoji} ${m.name}</span>
+      <span class="ci-name">${m.emoji} ${itemName(m)}</span>
       <div class="ci-right">
         <button class="ci-qb" onclick="changeQty(${id},-1);renderCartList()">−</button>
         <span class="ci-qty">${cart[id]}</span>
@@ -857,7 +917,7 @@ function renderCartList() {
       </div>`;
     list.appendChild(row);
   });
-  $('cart-total').textContent = `Total: ₹${cartTotal()}`;
+  $('cart-total').textContent = `${t('Total', 'एकूण')}: ₹${cartTotal()}`;
 }
 
 function buildConfirmSummary() {
@@ -867,7 +927,7 @@ function buildConfirmSummary() {
   const itemsHtml = Object.keys(cart).map(id=>{
     const m=MENU.find(x=>x.id==id);
     return `<div style="display:flex;justify-content:space-between;">
-      <span>${m.emoji} ${m.name} × ${cart[id]}</span>
+      <span>${m.emoji} ${itemName(m)} × ${cart[id]}</span>
       <span style="color:var(--turmeric);">₹${m.price*cart[id]}</span>
     </div>`;
   }).join('');
@@ -877,12 +937,12 @@ function buildConfirmSummary() {
       ${itemsHtml}
     </div>
     <div style="display:flex;justify-content:space-between;font-family:'Bebas Neue';font-size:1.3rem;">
-      <span>TOTAL</span><span style="color:var(--turmeric);">₹${cartTotal()}</span>
+      <span>${t('TOTAL', 'एकूण')}</span><span style="color:var(--turmeric);">₹${cartTotal()}</span>
     </div>
     <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);
       font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.9;">
-      👤 <strong style="color:var(--cream);">${name}</strong> &nbsp;|&nbsp;
-      🎓 ${sc}
+      ${t('👤', '👤')} <strong style="color:var(--cream);">${name}</strong> &nbsp;|&nbsp;
+      ${t('🎓', '🎓')} ${sc}
     </div>`;
 }
 
@@ -893,9 +953,14 @@ function sendWhatsApp() {
 
   const orderId = 'DH-' + (1000 + Math.floor(Math.random()*9000));
 
-  const itemLines = Object.keys(cart).map(id=>{
+  const itemLinesEn = Object.keys(cart).map(id=>{
     const m = MENU.find(x=>x.id==id);
     return `  • ${m.emoji} ${m.name} × ${cart[id]}  = ₹${m.price * cart[id]}`;
+  }).join('\n');
+
+  const itemLinesMr = Object.keys(cart).map(id=>{
+    const m = MENU.find(x=>x.id==id);
+    return `  • ${m.emoji} ${m.nameMr} × ${cart[id]}  = ₹${m.price * cart[id]}`;
   }).join('\n');
 
   const msg =
@@ -907,11 +972,25 @@ function sendWhatsApp() {
 🎓 *SC Code:* ${sc}
 ━━━━━━━━━━━━━━━━━━━━
 🍽️ *Items Ordered:*
-${itemLines}
+${itemLinesEn}
 ━━━━━━━━━━━━━━━━━━━━
 💰 *Total: ₹${cartTotal()}*
 ━━━━━━━━━━━━━━━━━━━━
-Please confirm & send payment QR. Thank you! 🙏`;
+Please confirm & send payment QR. Thank you! 🙏
+
+🌶️ *नवीन ऑर्डर — धाबा ४२०* 🌶️
+━━━━━━━━━━━━━━━━━━━━
+🆔 *ऑर्डर आयडी:* ${orderId}
+━━━━━━━━━━━━━━━━━━━━
+👤 *नाव:* ${name}
+🎓 *एससी कोड:* ${sc}
+━━━━━━━━━━━━━━━━━━━━
+🍽️ *मागवलेले पदार्थ:*
+${itemLinesMr}
+━━━━━━━━━━━━━━━━━━━━
+💰 *एकूण: ₹${cartTotal()}*
+━━━━━━━━━━━━━━━━━━━━
+कृपया ऑर्डर कन्फर्म करा आणि पेमेंटसाठी QR पाठवा. धन्यवाद! 🙏`;
 
   const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
@@ -966,6 +1045,7 @@ $('footer-wa').href = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent
 // ─── INIT ──────────────────────────────────────
 window.addEventListener('load',()=>{
   renderMenu();
+  applyLanguage();
   setTimeout(()=>$('loader').classList.add('gone'), 1600);
 });
 
