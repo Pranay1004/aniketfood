@@ -680,17 +680,19 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
 <script>
 // ─── MENU DATA ─────────────────────────────────
 const MENU = [
-  { id:1, name:"Vadapav",         emoji:"🥙", price:20,  spice:3, badge:"BESTSELLER", badgeGold:true,
+  { id:1, name:"Vadapav",         emoji:"🥙", price:19,  spice:3, badge:"BESTSELLER", badgeGold:true,
     desc:"Crispy potato patty in soft pav with chutney & fried green chili." },
-  { id:2, name:"Misal Pav",      emoji:"🍲", price:60,  spice:4, badge:"HOUSE SPECIAL", badgeGold:false,
-    desc:"Moth beans rassa with farsan, onion, tomato, coriander. Served with buttered pavs." },
-  { id:3, name:"Bhel",           emoji:"🥗", price:50,  spice:2, badge:"",
-    desc:"Puffed rice, sev, onion, raw mango tossed in tamarind & green chutney. Party in your mouth." },
-  { id:4, name:"Sabudana Vada",  emoji:"🟡", price:40,  spice:1, badge:"SAT ONLY", badgeGold:false,
-    desc:"Available on Saturdays only. Crispy tapioca & peanut fritters with coconut chutney." },
-  { id:5, name:"Pasta",          emoji:"🍝", price:80,  spice:1, badge:"",
-    desc:"Creamy tomato pasta with local spices — comfort in a bowl." },
-  { id:6, name:"Dish on Request",emoji:"🍽️", price:0,   spice:0, badge:"CUSTOM", badgeGold:true,
+  { id:2, name:"Misal Pav",      emoji:"🍲", price:59,  spice:4, badge:"HOUSE SPECIAL", badgeGold:false,
+    desc:"Moth beans rassa with farsan, onion, tomato, coriander. Get Tari as a side." },
+  { id:3, name:"Bhel",           emoji:"🥗", price:49,  spice:2, badge:"",
+    desc:"Puffed rice, sev, onion, farsan tossed in tamarind & green chutney. Party in your mouth." },
+  { id:4, name:"Sabudana Vada",  emoji:"🟡", price:39,  spice:1, badge:"SAT ONLY", badgeGold:false,
+    desc:"Two Pieces - Available on Saturdays only." },
+  { id:5, name:"Pasta",          emoji:"🍝", price:69,  spice:1, badge:"",
+    desc:"Tomato pasta with local spices — comfort in a bowl." },
+  { id:6, name:"Chana Masala",   emoji:"🫘", price:69,  spice:3, badge:"",
+    desc:"Maharashtrian-style Dry Chana Masala with bold masala flavour." },
+  { id:7, name:"Dish on Request",emoji:"🍽️", price:0,   spice:0, badge:"CUSTOM", badgeGold:true,
     desc:"Got a craving? DM us on WhatsApp and we'll make authentic Maha magic happen." },
 ];
 
@@ -717,30 +719,47 @@ function changeQty(id, delta) {
   refreshFab();
 }
 
+function refreshCard(id) {
+  const qty = cart[id] || 0;
+  const addBtn = document.querySelector(`[data-addbtn="${id}"]`);
+  const qtyRow = document.querySelector(`[data-qtyrow="${id}"]`);
+  const qnum = document.querySelector(`[data-qnum="${id}"]`);
+
+  if (!addBtn || !qtyRow || !qnum) return;
+
+  if (qty === 0) {
+    addBtn.style.display = '';
+    qtyRow.style.display = 'none';
+  } else {
+    addBtn.style.display = 'none';
+    qtyRow.style.display = 'flex';
+    qnum.textContent = qty;
+  }
+}
+
+function refreshFab() {
+  const n = cartCount();
+  $('fab-count').textContent = n;
+  if (n > 0) $('cart-fab').classList.add('up');
+  else $('cart-fab').classList.remove('up');
+}
+
 function renderMenu() {
   const grid = $('menu-grid');
-  const todayIsSat = new Date().getDay() === 6; // Saturday = 6
   MENU.forEach((item, i) => {
     
     const div = document.createElement('div');
     div.className = 'mc';
     div.style.transitionDelay = `${i*.07}s`;
 
-    const isSatOnly = item.badge === 'SAT ONLY';
-    const available = !isSatOnly || todayIsSat;
-
     let actionHtml = '';
     if (item.price > 0) {
-      if (available) {
-        actionHtml = `<button class="add-btn" data-addbtn="${item.id}" onclick="addOne(${item.id});spawnSpark(event)">+ Add to Cart</button>
-           <div class="qty-row" data-qtyrow="${item.id}" style="display:none;">
-             <button class="qb" onclick="changeQty(${item.id},-1);spawnSpark(event)">−</button>
-             <span class="qnum" data-qnum="${item.id}">0</span>
-             <button class="qb" onclick="changeQty(${item.id},1);spawnSpark(event)">+</button>
-           </div>`;
-      } else {
-        actionHtml = `<button class="add-btn" disabled style="opacity:.5;cursor:not-allowed;">Available on Saturdays</button>`;
-      }
+      actionHtml = `<button class="add-btn" data-addbtn="${item.id}" onclick="addOne(${item.id});spawnSpark(event)">+ Add to Cart</button>
+         <div class="qty-row" data-qtyrow="${item.id}" style="display:none;">
+           <button class="qb" onclick="changeQty(${item.id},-1);spawnSpark(event)">−</button>
+           <span class="qnum" data-qnum="${item.id}">0</span>
+           <button class="qb" onclick="changeQty(${item.id},1);spawnSpark(event)">+</button>
+         </div>`;
     } else {
       actionHtml = `<a class="add-btn" style="text-align:center;display:block;text-decoration:none;"
               href="https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent('Hi! I want to place a custom Maha dish order at Dhaaba 420, IIST TRV 🌶️') }"
