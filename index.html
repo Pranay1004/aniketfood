@@ -23,6 +23,8 @@
   --green:#27AE60; --dark:#0F0500; --mid:#1A0800;
   --cream:#FFF8EC; --wa:#25D366;
 }
+/* Visit stats */
+.visit-stats{font-size:.78rem;color:rgba(255,255,255,.9);opacity:.9;margin-top:6px}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
@@ -581,6 +583,7 @@ footer p{color:rgba(255,255,255,.25);font-size:.82rem;margin-top:6px;line-height
     </a>
   </div>
   <p style="margin-top:24px;font-size:.7rem;opacity:.2;" data-en="Underground. Unmissable." data-mr="हटके. चुकवू नका.">Underground. Unmissable.</p>
+  <div id="visit-stats" class="visit-stats" style="margin-top:8px;font-size:.78rem;opacity:.95;color:rgba(255,255,255,.9)"></div>
 </footer>
 
 <!-- CART FAB -->
@@ -791,6 +794,8 @@ function applyLanguage() {
   renderMenu();
   renderCartList();
   if (currentStep === 2) buildConfirmSummary();
+  // update localized visit stats
+  try{ updateVisitStats(); }catch(e){}
 }
 
 function toggleLanguage() {
@@ -1038,6 +1043,32 @@ $('hamburger').addEventListener('click',()=>{
   $('nav-mobile').classList.toggle('open');
 });
 function closeMob(){ $('nav-mobile').classList.remove('open'); }
+
+// ─── VISIT COUNTER (localStorage-based) ─────────────────
+function updateVisitStats(){
+  const el = $('visit-stats');
+  if(!el) return;
+  const visits = parseInt(localStorage.getItem('dhaaba_visit_count')||'0');
+  const firstIso = localStorage.getItem('dhaaba_first_visit');
+  const lastIso = localStorage.getItem('dhaaba_last_visit');
+  const first = firstIso ? new Date(firstIso) : null;
+  const last = lastIso ? new Date(lastIso) : null;
+  const firstStr = first ? first.toLocaleDateString() : '-';
+  const lastStr = last ? last.toLocaleString() : '-';
+  const en = `Visits (this browser): ${visits} · First: ${firstStr} · Last: ${lastStr}`;
+  const mr = `बघण्यांची संख्या: ${visits} · पहिला: ${firstStr} · शेवटचा: ${lastStr}`;
+  el.textContent = currentLang === 'mr' ? mr : en;
+}
+
+function initVisitCounter(){
+  const now = new Date();
+  if(!localStorage.getItem('dhaaba_first_visit')) localStorage.setItem('dhaaba_first_visit', now.toISOString());
+  localStorage.setItem('dhaaba_last_visit', now.toISOString());
+  const prev = parseInt(localStorage.getItem('dhaaba_visit_count')||'0');
+  const next = prev + 1;
+  localStorage.setItem('dhaaba_visit_count', String(next));
+  updateVisitStats();
+}
 
 // ─── FOOTER WA LINK ────────────────────────────
 $('footer-wa').href = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent('Hi! I want to order from Dhaaba 420 🌶️')}`;
