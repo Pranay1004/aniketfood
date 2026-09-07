@@ -1,9 +1,12 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "conscentia2k26/index.html", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/conscentia2k26/?", "dest": "/conscentia2k26/index.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "headers": [

@@ -189,10 +189,3 @@ Include documentation (this README) and a small `CHANGELOG` or `CUSTOMIZE.md` fo
 If you sell this as a template, include a short license (MIT) and a `credits.txt` for original assets (fonts are Google Fonts — free to use). Avoid selling copies that include proprietary images you don't own.
 
 ---
-
-If you want, I can:
-- Commit and push this README to the repo (done now if you confirm)
-- Create a `CUSTOMIZE.md` or `CHANGELOG` for buyers
-- Generate a ZIP release that includes `index.html`, `README.md`, and a suggested `vercel.json`
-
-Tell me which of the above you want next.

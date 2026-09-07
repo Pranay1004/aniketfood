@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Conscentia 2k26 x DHAABA 420 — Fest Food Pre-Booking</title>
+    <meta name="description"
+        content="Vada Pav, Mirchi Bhaji & Misal Pav at Conscentia 2k26. Pre-book now and save 10%. Authentic Maharashtrian street food at IIST." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23cc2200' width='100' height='100' rx='20'/><text x='50' y='65' font-size='60' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'>🌶</text></svg>"
+        type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Baloo+2:wght@400;600;800&family=Kalam:wght@400;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━ CONFIG — CHANGE THESE ━━━━━━━━━━━━━━━━━━━━ -->
+    <script>
+        const OWNER_WHATSAPP = "917385020441"; // ← YOUR NUMBER HERE
+        const PREBOOK_DISCOUNT = 0.10;         // ← 10% pre-booking discount
+        const FEST_NAME = "Conscentia 2k26";
+    </script>
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+    <style>
+        :root {
+            --saffron: #FF6B00;
+            --deep: #C0392B;
+            --turmeric: #F5C518;
+            --green: #27AE60;
+            --dark: #0F0500;
+            --mid: #1A0800;
+            --cream: #FFF8EC;
+            --wa: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--cream);
+            font-family: 'Baloo 2', cursive;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--saffron);
+            border-radius: 99px;
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .5s, visibility .5s;
+        }
+
+        #loader.gone {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .ld-emoji {
+            font-size: 72px;
+            animation: ldSpin 1s linear infinite;
+        }
+
+        .ld-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--saffron);
+            margin-top: 14px;
+            letter-spacing: 5px;
+            animation: ldPulse .7s ease infinite alternate;
+        }
+
+        @keyframes ldSpin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes ldPulse {
+            from {
+                opacity: .3
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        #nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            height: 60px;
+            background: rgba(15, 5, 0, .92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 107, 0, .12);
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--saffron);
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo .x {
+            color: rgba(255, 255, 255, .3);
+            font-size: 1rem;
+        }
+
+        .nav-logo .fest {
+            color: var(--turmeric);
+        }
+
+        .nav-order-btn {
+            background: linear-gradient(135deg, var(--saffron), #FF3D00);
+            color: #fff !important;
+            border-radius: 10px;
+            text-decoration: none;
+            padding: 9px 20px;
+            font-size: .9rem;
+            font-weight: 800;
+            box-shadow: 0 4px 16px rgba(255, 107, 0, .4);
+            transition: all .2s;
+        }
+
+        .nav-order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 0, .6);
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 88vh;
+            padding-top: 60px;
+            background: radial-gradient(ellipse at 50% 30%, #3D0C00 0%, var(--dark) 70%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .hero-watermark {
+            position: absolute;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(70px, 15vw, 220px);
+            color: rgba(255, 107, 0, .045);
+            white-space: nowrap;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            user-select: none;
+            animation: wmdrift 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes wmdrift {
+            from {
+                letter-spacing: -3px
+            }
+
+            to {
+                letter-spacing: 8px
+            }
+        }
+
+        .float {
+            position: absolute;
+            pointer-events: none;
+            animation: floatY ease-in-out infinite;
+        }
+
+        @keyframes floatY {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-28px) rotate(8deg);
+            }
+        }
+
+        .hero-chip {
+            background: var(--turmeric);
+            color: var(--dark);
+            font-family: 'Kalam', cursive;
+            font-size: .9rem;
+            font-weight: 700;
+            padding: 5px 20px;
+            border-radius: 99px;
+            display: inline-block;
+            transform: rotate(-2deg);
+            margin-bottom: 18px;
+            animation: chipIn .5s cubic-bezier(.34, 1.56, .64, 1) .7s both;
+        }
+
+        @keyframes chipIn {
+            from {
+                opacity: 0;
+                transform: rotate(-2deg) scale(.4)
+            }
+
+            to {
+                opacity: 1;
+                transform: rotate(-2deg) scale(1)
+            }
+        }
+
+        .hero-h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(52px, 11vw, 120px);
+            line-height: .92;
+            background: linear-gradient(175deg, #FFB347, #FF6B00, #FFD700, #FF3D00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 50px rgba(255, 107, 0, .45));
+            animation: slamIn .7s cubic-bezier(.34, 1.56, .64, 1) .2s both;
+        }
+
+        @keyframes slamIn {
+            from {
+                opacity: 0;
+                transform: scale(.25) rotate(-6deg)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0)
+            }
+        }
+
+        .hero-h1 .small {
+            font-size: .42em;
+            display: block;
+            color: rgba(255, 255, 255, .5);
+            -webkit-text-fill-color: rgba(255, 255, 255, .5);
+            filter: none;
+            letter-spacing: 4px;
+            margin-bottom: 4px;
+        }
+
+        .hero-sub {
+            font-family: 'Kalam', cursive;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--turmeric);
+            margin-top: 14px;
+            animation: fadeUp 1s ease 1s both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .discount-banner {
+            margin-top: 26px;
+            background: linear-gradient(135deg, rgba(39, 174, 96, .15), rgba(39, 174, 96, .05));
+            border: 1.5px dashed var(--green);
+            border-radius: 16px;
+            padding: 16px 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeUp 1s ease 1.2s both;
+        }
+
+        .discount-banner .dtag {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: var(--green);
+            letter-spacing: 1px;
+        }
+
+        .discount-banner .dsub {
+            font-size: .85rem;
+            color: rgba(255, 255, 255, .55);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+            animation: fadeUp 1s ease 1.4s both;
+        }
+
+        .btn {
+            font-family: 'Baloo 2', cursive;
+            font-weight: 800;
+            border-radius: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+            transition: all .22s cubic-bezier(.34, 1.56, .64, 1);
+            border: none;
+        }
+
+        .btn-hot {
+            background: linear-gradient(135deg, var(--saffron), #FF3D00);
+            color: #fff;
+            box-shadow: 0 8px 28px rgba(255, 107, 0, .5);
+        }
+
+        .btn-hot:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 16px 40px rgba(255, 107, 0, .7);
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, .4);
+        }
+
+        .btn-wa:hover {
+            background: #1da851;
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(37, 211, 102, .55);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--turmeric);
+            border: 2px solid var(--turmeric) !important;
+        }
+
+        .btn-outline:hover {
+            background: var(--turmeric);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 70px 20px;
+        }
+
+        .sec-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(40px, 7vw, 80px);
+            text-align: center;
+            line-height: 1;
+            background: linear-gradient(180deg, var(--cream), var(--turmeric));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+        }
+
+        .sec-sub {
+            text-align: center;
+            color: rgba(255, 255, 255, .4);
+            font-size: .95rem;
+            font-style: italic;
+            margin-bottom: 44px;
+        }
+
+        /* ── MENU GRID ── */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .mc {
+            background: linear-gradient(145deg, rgba(255, 107, 0, .07), rgba(255, 255, 255, .03));
+            border: 1px solid rgba(255, 107, 0, .18);
+            border-radius: 22px;
+            padding: 26px;
+            position: relative;
+            overflow: hidden;
+            transition: all .3s cubic-bezier(.34, 1.56, .64, 1);
+            opacity: 0;
+            transform: translateY(36px);
+        }
+
+        .mc.vis {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mc:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--saffron);
+            box-shadow: 0 20px 48px rgba(255, 107, 0, .22);
+        }
+
+        .mc-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: .7rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 99px;
+            background: rgba(39, 174, 96, .18);
+            border: 1px solid var(--green);
+            color: #7CE8A4;
+            letter-spacing: .5px;
+        }
+
+        .mc-emoji {
+            font-size: 52px;
+            display: block;
+            margin-bottom: 10px;
+            transition: transform .3s;
+        }
+
+        .mc:hover .mc-emoji {
+            transform: scale(1.18) rotate(8deg);
+        }
+
+        .mc-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.9rem;
+            color: var(--saffron);
+            letter-spacing: .5px;
+        }
+
+        .mc-desc {
+            font-size: .88rem;
+            color: rgba(255, 255, 255, .55);
+            margin: 6px 0 14px;
+            line-height: 1.6;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .mc-price-old {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, .3);
+            text-decoration: line-through;
+        }
+
+        .mc-price-new {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--green);
+        }
+
+        .mc-save {
+            font-size: .72rem;
+            color: var(--turmeric);
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        .add-btn {
+            width: 100%;
+            margin-top: 14px;
+            padding: 11px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--saffron), #FF3D00);
+            color: #fff;
+            font-family: 'Baloo 2', cursive;
+            font-size: .98rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .add-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, .5);
+        }
+
+        .add-btn:active {
+            transform: scale(.97);
+        }
+
+        .qty-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .qty-row .qb {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 800;
+            transition: all .15s;
+            background: rgba(255, 107, 0, .2);
+            color: var(--saffron);
+        }
+
+        .qty-row .qb:hover {
+            background: var(--saffron);
+            color: #fff;
+        }
+
+        .qty-row .qnum {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: var(--turmeric);
+            min-width: 24px;
+            text-align: center;
+        }
+
+        /* ── CART FAB ── */
+        #cart-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 150;
+            background: linear-gradient(135deg, var(--green), #1da851);
+            color: #fff;
+            border: none;
+            border-radius: 18px;
+            padding: 13px 22px;
+            font-family: 'Baloo 2', cursive;
+            font-size: .98rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 28px rgba(39, 174, 96, .5);
+            transform: translateY(120px);
+            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), box-shadow .2s;
+        }
+
+        #cart-fab.up {
+            transform: translateY(0);
+        }
+
+        #cart-fab:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(39, 174, 96, .7);
+        }
+
+        .cfab-badge {
+            background: #fff;
+            color: var(--green);
+            border-radius: 99px;
+            min-width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .78rem;
+            font-weight: 900;
+            padding: 0 5px;
+        }
+
+        /* ── OVERLAY / MODAL ── */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            background: rgba(0, 0, 0, .88);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s;
+        }
+
+        .overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: linear-gradient(145deg, #180800, #2A0D00);
+            border: 1px solid rgba(255, 107, 0, .28);
+            border-radius: 26px;
+            padding: 36px;
+            width: 100%;
+            max-width: 540px;
+            max-height: 92vh;
+            overflow-y: auto;
+            transform: scale(.82) translateY(32px);
+            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
+            position: relative;
+        }
+
+        .overlay.open .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-x {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, .35);
+            font-size: 1.7rem;
+            cursor: pointer;
+            transition: color .2s;
+            line-height: 1;
+        }
+
+        .modal-x:hover {
+            color: #fff;
+        }
+
+        .modal-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.4rem;
+            color: var(--saffron);
+        }
+
+        .modal-hint {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .35);
+            margin-top: 2px;
+        }
+
+        .cart-list {
+            margin: 20px 0;
+        }
+
+        .ci {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .ci-name {
+            font-weight: 700;
+            font-size: .95rem;
+        }
+
+        .ci-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ci-qb {
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            border: none;
+            cursor: pointer;
+            background: rgba(255, 107, 0, .18);
+            color: var(--saffron);
+            font-size: .95rem;
+            font-weight: 900;
+            transition: all .15s;
+        }
+
+        .ci-qb:hover {
+            background: var(--saffron);
+            color: #fff;
+        }
+
+        .ci-qty {
+            color: var(--turmeric);
+            font-weight: 800;
+            min-width: 16px;
+            text-align: center;
+        }
+
+        .ci-price {
+            color: rgba(255, 255, 255, .4);
+            font-size: .88rem;
+            min-width: 56px;
+            text-align: right;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 30px 0;
+            color: rgba(255, 255, 255, .25);
+            font-size: .95rem;
+        }
+
+        .cart-savings {
+            display: flex;
+            justify-content: space-between;
+            font-size: .85rem;
+            color: var(--green);
+            margin-top: 6px;
+        }
+
+        .cart-total {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.7rem;
+            color: var(--turmeric);
+            text-align: right;
+            margin: 10px 0 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media(max-width:480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fg {
+            margin-bottom: 16px;
+        }
+
+        .fl {
+            display: block;
+            font-size: .76rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, .45);
+            margin-bottom: 5px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .fi {
+            width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 107, 0, .22);
+            border-radius: 12px;
+            padding: 11px 14px;
+            color: var(--cream);
+            font-family: 'Baloo 2', cursive;
+            font-size: .95rem;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .fi:focus {
+            border-color: var(--saffron);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, .14);
+        }
+
+        .fi::placeholder {
+            color: rgba(255, 255, 255, .2);
+        }
+
+        .steps {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px 4px;
+            position: relative;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .2);
+            transition: color .3s;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 107, 0, .1);
+            border-radius: 2px;
+            transition: background .3s;
+        }
+
+        .step.active {
+            color: var(--saffron);
+        }
+
+        .step.active::after {
+            background: var(--saffron);
+        }
+
+        .step.done {
+            color: var(--green);
+        }
+
+        .step.done::after {
+            background: var(--green);
+        }
+
+        #scr-success {
+            display: none;
+        }
+
+        #scr-success.show {
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .suc-emoji {
+            font-size: 72px;
+            animation: bounce .6s ease infinite alternate;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: scale(1) rotate(-4deg)
+            }
+
+            to {
+                transform: scale(1.15) rotate(4deg)
+            }
+        }
+
+        .suc-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--green);
+            margin: 10px 0 6px;
+        }
+
+        .suc-oid {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--green);
+            letter-spacing: 3px;
+            background: rgba(39, 174, 96, .12);
+            border: 1px solid var(--green);
+            border-radius: 12px;
+            padding: 10px 24px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .suc-note {
+            font-size: .88rem;
+            color: rgba(255, 255, 255, .4);
+            line-height: 1.7;
+            margin: 10px 0 20px;
+        }
+
+        /* ── HOW IT WORKS ── */
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .how-card {
+            background: rgba(255, 107, 0, .05);
+            border: 1px solid rgba(255, 107, 0, .12);
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all .3s;
+        }
+
+        .how-card:hover {
+            background: rgba(255, 107, 0, .1);
+            transform: translateY(-6px);
+        }
+
+        .how-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--saffron);
+            line-height: 1;
+        }
+
+        .how-icon {
+            font-size: 2.2rem;
+            margin: 8px 0;
+        }
+
+        .how-title {
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .how-desc {
+            font-size: .83rem;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.6;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #080200;
+            border-top: 1px solid rgba(255, 107, 0, .08);
+            padding: 36px 20px;
+            text-align: center;
+        }
+
+        .ft-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--saffron);
+            letter-spacing: 2px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, .4);
+            font-size: .82rem;
+            margin-top: 6px;
+            line-height: 1.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 18px;
+            color: rgba(255, 255, 255, .3);
+            font-size: .8rem;
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(255, 255, 255, .2);
+        }
+
+        .back-link:hover {
+            color: var(--turmeric);
+            border-color: var(--turmeric);
+        }
+
+        .spark {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            font-size: 18px;
+            animation: sparkFly .8s ease forwards;
+        }
+
+        @keyframes sparkFly {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-70px) scale(.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="ld-emoji">🥙</div>
+        <div class="ld-text">Firing Up The Tadka…</div>
+    </div>
+
+    <nav id="nav">
+        <a class="nav-logo" href="#hero">🌶 DHAABA 420 <span class="x">×</span> <span class="fest">CONSCENTIA
+                2K26</span></a>
+        <a href="#menu" class="nav-order-btn">🔥 Pre-Book Now</a>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-watermark">FESTFOOD</div>
+        <span class="float" style="font-size:40px;top:14%;left:7%;animation-duration:4.2s">🥙</span>
+        <span class="float"
+            style="font-size:34px;top:72%;left:6%;animation-duration:5.1s;animation-delay:.8s">🌶️</span>
+        <span class="float"
+            style="font-size:36px;top:18%;right:8%;animation-duration:3.8s;animation-delay:.3s">🍲</span>
+        <span class="float" style="font-size:38px;top:74%;right:9%;animation-duration:6s;animation-delay:1.2s">✨</span>
+
+        <div class="hero-chip">🎉 CONSCENTIA 2K26 SPECIAL</div>
+        <h1 class="hero-h1"><span class="small">DHAABA 420 AT</span>FEST FOOD</h1>
+        <p class="hero-sub">Vada Pav · Mirchi Bhaji · Misal Pav — fest favourites, fest prices 🧡</p>
+
+        <div class="discount-banner">
+            <span class="dtag">🎟️ PRE-BOOK & SAVE 10%</span>
+            <span class="dsub">Skip the queue day-of — reserve your food now, pay & collect at the stall.</span>
+        </div>
+
+        <div class="hero-btns">
+            <a href="#menu" class="btn btn-hot">🔥 Pre-Book Now & Save 10%</a>
+            <a href="#how" class="btn btn-outline">How It Works</a>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2 class="sec-title">FEST MENU</h2>
+        <p class="sec-sub">Pre-booked orders get first priority at the stall. 🌶️</p>
+        <div class="menu-grid" id="menu-grid"></div>
+    </section>
+
+    <section id="how" style="background:linear-gradient(135deg,rgba(255,107,0,.04),transparent);">
+        <h2 class="sec-title">HOW PRE-BOOKING WORKS</h2>
+        <p class="sec-sub">Reserve now, skip the fest-day queue. 📲</p>
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="how-num">01</div>
+                <div class="how-icon">🥙</div>
+                <div class="how-title">Pick Your Food</div>
+                <div class="how-desc">Add fest items to your cart — discount is applied automatically.</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">02</div>
+                <div class="how-icon">📝</div>
+                <div class="how-title">Fill Your Details</div>
+                <div class="how-desc">Name & SC Code — so we know whose order it is at the stall.</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">03</div>
+                <div class="how-icon">💬</div>
+                <div class="how-title">Send via WhatsApp</div>
+                <div class="how-desc">One tap sends your pre-booking request with the discounted total.</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">04</div>
+                <div class="how-icon">🎪</div>
+                <div class="how-title">Collect & Pay at Stall</div>
+                <div class="how-desc">Show your Order ID at Dhaaba 420's Conscentia stall, pay there, and eat. 🔥</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="ft-logo">🌶️ DHAABA 420 × CONSCENTIA 2K26</div>
+        <p>Fest Food Pre-Booking · IIST Campus · Made with Spice & Soul</p>
+        <p>Pre-book your order 👇 We reply within minutes on WhatsApp 📲</p>
+        <a class="back-link" href="/">← Back to regular Dhaaba 420 menu</a>
+    </footer>
+
+    <button id="cart-fab" onclick="openModal()">
+        <span>🛒 Pre-Book</span>
+        <span class="cfab-badge" id="fab-count">0</span>
+    </button>
+
+    <div class="overlay" id="overlay" onclick="overlayClick(event)">
+        <div class="modal" id="modal">
+            <button class="modal-x" onclick="closeModal()">✕</button>
+
+            <div class="steps" id="modal-steps">
+                <div class="step active" id="ms-0">Cart</div>
+                <div class="step" id="ms-1">Details</div>
+                <div class="step" id="ms-2">Confirm</div>
+            </div>
+
+            <div id="scr-cart">
+                <div class="modal-title">🛒 Your Pre-Book Cart</div>
+                <div class="modal-hint">10% pre-booking discount already applied below</div>
+                <div class="cart-list" id="cart-list"></div>
+                <div class="cart-savings" id="cart-savings"></div>
+                <div class="cart-total" id="cart-total">Total: ₹0</div>
+                <button class="btn btn-hot" style="width:100%;justify-content:center;" onclick="goStep(1)">Proceed to
+                    Details →</button>
+            </div>
+
+            <div id="scr-details" style="display:none;">
+                <div class="modal-title">📝 Your Details</div>
+                <div class="modal-hint" style="margin-bottom:20px;">So we know whose order this is at the stall 😄</div>
+                <div class="form-row">
+                    <div class="fg">
+                        <label class="fl">Full Name *</label>
+                        <input class="fi" id="f-name" placeholder="Rahul Deshmukh" autocomplete="name" />
+                    </div>
+                    <div class="fg">
+                        <label class="fl">SC Code *</label>
+                        <input class="fi" id="f-sc" placeholder="SC2024XXX" />
+                    </div>
+                </div>
+                <div style="display:flex;gap:10px;margin-top:4px;">
+                    <button class="btn btn-outline" style="flex:1;justify-content:center;" onclick="goStep(0)">←
+                        Back</button>
+                    <button class="btn btn-hot" style="flex:2;justify-content:center;" onclick="goStep(2)">Review Order
+                        →</button>
+                </div>
+            </div>
+
+            <div id="scr-confirm" style="display:none;">
+                <div class="modal-title">✅ Confirm Pre-Booking</div>
+                <div class="modal-hint" style="margin-bottom:20px;">One last look before we lock in your fest order 🔥
+                </div>
+                <div id="confirm-summary"
+                    style="background:rgba(255,255,255,.04);border:1px solid rgba(255,107,0,.18);border-radius:16px;padding:20px;margin-bottom:20px;font-size:.9rem;line-height:1.9;">
+                </div>
+                <div id="payment-info"
+                    style="background:rgba(37,211,102,.06);border:1px solid rgba(37,211,102,.25);border-radius:14px;padding:16px 18px;margin-bottom:20px;font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;">
+                    🎪 <strong style="color:var(--wa);">Payment at the stall:</strong><br>
+                    Tap "Send Pre-Booking on WhatsApp" → We confirm your reservation →<br>
+                    Show your <strong style="color:var(--turmeric);">Order ID</strong> at the Conscentia stall → Pay
+                    there → Collect & eat 🙌
+                </div>
+                <div style="display:flex;gap:10px;">
+                    <button class="btn btn-outline" style="flex:1;justify-content:center;font-size:.9rem;"
+                        onclick="goStep(1)">← Edit</button>
+                    <button class="btn btn-wa" id="wa-send-btn" style="flex:2;justify-content:center;"
+                        onclick="sendWhatsApp()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        <span>Send Pre-Booking on WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="scr-success">
+                <div class="suc-emoji">🎉</div>
+                <div class="suc-title">PRE-BOOKED!</div>
+                <div class="suc-oid" id="suc-oid">CF-0000</div>
+                <p class="suc-note" id="success-note">
+                    Your pre-booking request has been sent to WhatsApp!<br>
+                    <strong style="color:var(--turmeric);">We'll confirm within minutes.</strong><br>
+                    Show this Order ID at the Conscentia stall, pay there & collect your food. 🔥
+                </p>
+                <a id="suc-wa-link" href="#" target="_blank" rel="noopener" class="btn btn-wa"
+                    style="width:100%;justify-content:center;text-decoration:none;margin-bottom:10px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    <span>Reopen in WhatsApp</span>
+                </a>
+                <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeModal()">Back
+                    to Menu 🥙</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ─── FEST MENU DATA ────────────────────────────
+        // price = fest price (as displayed on the poster). Discount is applied at 10% off automatically.
+        const MENU = [
+            {
+                id: 1, name: "Vada Pav", emoji: "🥙", price: 60, unit: "2 pcs",
+                desc: "Crispy potato patty in soft pav with chutney & fried green chili."
+            },
+            {
+                id: 2, name: "Mirchi Bhaji", emoji: "🌶️", price: 50, unit: "4 pcs",
+                desc: "Golden fried stuffed mirchi bhaji, served hot with chutney."
+            },
+            {
+                id: 3, name: "Misal Pav", emoji: "🍲", price: 130, unit: "1 plate",
+                desc: "Moth beans rassa with farsan, onion, tomato, coriander & pav."
+            },
+        ];
+
+        // ─── CART STATE ────────────────────────────────
+        let cart = {}; // { id: qty }
+        const $ = id => document.getElementById(id);
+        const discPrice = m => Math.round(m.price * (1 - PREBOOK_DISCOUNT));
+        const cartTotal = () => Object.keys(cart).reduce((s, id) => { const m = MENU.find(x => x.id == id); return s + (discPrice(m) * cart[id]); }, 0);
+        const cartOriginalTotal = () => Object.keys(cart).reduce((s, id) => { const m = MENU.find(x => x.id == id); return s + (m.price * cart[id]); }, 0);
+        const cartCount = () => Object.values(cart).reduce((s, v) => s + v, 0);
+
+        function addOne(id) {
+            cart[id] = (cart[id] || 0) + 1;
+            refreshCard(id);
+            refreshFab();
+        }
+        function changeQty(id, delta) {
+            cart[id] = Math.max(0, (cart[id] || 0) + delta);
+            if (!cart[id]) delete cart[id];
+            refreshCard(id);
+            refreshFab();
+        }
+        function refreshCard(id) {
+            const qty = cart[id] || 0;
+            const addBtn = document.querySelector(`[data-addbtn="${id}"]`);
+            const qtyRow = document.querySelector(`[data-qtyrow="${id}"]`);
+            const qnum = document.querySelector(`[data-qnum="${id}"]`);
+            if (!addBtn || !qtyRow || !qnum) return;
+            if (qty === 0) { addBtn.style.display = ''; qtyRow.style.display = 'none'; }
+            else { addBtn.style.display = 'none'; qtyRow.style.display = 'flex'; qnum.textContent = qty; }
+        }
+        function refreshFab() {
+            const n = cartCount();
+            $('fab-count').textContent = n;
+            if (n > 0) $('cart-fab').classList.add('up');
+            else $('cart-fab').classList.remove('up');
+        }
+
+        function renderMenu() {
+            const grid = $('menu-grid');
+            grid.innerHTML = '';
+            MENU.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'mc';
+                div.style.transitionDelay = `${i * .07}s`;
+                div.innerHTML = `
+      <div class="mc-badge">SAVE ${Math.round(PREBOOK_DISCOUNT * 100)}%</div>
+      <span class="mc-emoji">${item.emoji}</span>
+      <div class="mc-name">${item.name}</div>
+      <div class="mc-desc">${item.desc} <em style="opacity:.6">(${item.unit})</em></div>
+      <div class="price-row">
+        <span class="mc-price-old">₹${item.price}</span>
+        <span class="mc-price-new">₹${discPrice(item)}</span>
+      </div>
+      <div class="mc-save">You save ₹${item.price - discPrice(item)} with pre-booking</div>
+      <button class="add-btn" data-addbtn="${item.id}" onclick="addOne(${item.id});spawnSpark(event)">+ Add to Pre-Book</button>
+      <div class="qty-row" data-qtyrow="${item.id}" style="display:none;">
+        <button class="qb" onclick="changeQty(${item.id},-1);spawnSpark(event)">−</button>
+        <span class="qnum" data-qnum="${item.id}">0</span>
+        <button class="qb" onclick="changeQty(${item.id},1);spawnSpark(event)">+</button>
+      </div>`;
+                grid.appendChild(div);
+            });
+            const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }), { threshold: .1 });
+            document.querySelectorAll('.mc').forEach(c => obs.observe(c));
+        }
+
+        // ─── MODAL / STEPS ─────────────────────────────
+        const SCREENS = ['scr-cart', 'scr-details', 'scr-confirm', 'scr-success'];
+        let currentStep = 0;
+
+        function openModal() {
+            renderCartList();
+            showScreen('scr-cart');
+            currentStep = 0;
+            updateStepUI(0);
+            $('overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            $('overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function overlayClick(e) { if (e.target === $('overlay')) closeModal(); }
+        function showScreen(id) { SCREENS.forEach(s => { $(s).style.display = s === id ? '' : 'none'; }); }
+        function updateStepUI(step) {
+            [0, 1, 2].forEach(i => {
+                const el = $(`ms-${i}`);
+                el.classList.remove('active', 'done');
+                if (i < step) el.classList.add('done');
+                else if (i === step) el.classList.add('active');
+            });
+            $('modal-steps').style.display = step >= 3 ? 'none' : 'flex';
+        }
+
+        function goStep(step) {
+            if (step === 1) {
+                if (cartCount() === 0) { alert('Add something to pre-book first! 🥙'); return; }
+                showScreen('scr-details');
+                currentStep = 1;
+            } else if (step === 2) {
+                const name = $('f-name').value.trim();
+                const sc = $('f-sc').value.trim();
+                if (!name) { $('f-name').focus(); alert('Please enter your name 😊'); return; }
+                if (!sc) { $('f-sc').focus(); alert('Please enter your SC code'); return; }
+                buildConfirmSummary();
+                showScreen('scr-confirm');
+                currentStep = 2;
+            } else if (step === 0) {
+                showScreen('scr-cart');
+                renderCartList();
+                currentStep = 0;
+            }
+            updateStepUI(currentStep);
+        }
+
+        function renderCartList() {
+            const list = $('cart-list');
+            list.innerHTML = '';
+            if (cartCount() === 0) {
+                list.innerHTML = `<div class="cart-empty">Cart is empty. Go pick some fest food! 🥙</div>`;
+                $('cart-total').textContent = `Total: ₹0`;
+                $('cart-savings').textContent = '';
+                return;
+            }
+            Object.keys(cart).forEach(id => {
+                const m = MENU.find(x => x.id == id);
+                const row = document.createElement('div');
+                row.className = 'ci';
+                row.innerHTML = `
+      <span class="ci-name">${m.emoji} ${m.name}</span>
+      <div class="ci-right">
+        <button class="ci-qb" onclick="changeQty(${id},-1);renderCartList()">−</button>
+        <span class="ci-qty">${cart[id]}</span>
+        <button class="ci-qb" onclick="changeQty(${id},1);renderCartList()">+</button>
+        <span class="ci-price">₹${discPrice(m) * cart[id]}</span>
+      </div>`;
+                list.appendChild(row);
+            });
+            const saved = cartOriginalTotal() - cartTotal();
+            $('cart-savings').innerHTML = `<span>🎉 Pre-booking discount</span><span>− ₹${saved}</span>`;
+            $('cart-total').textContent = `Total: ₹${cartTotal()}`;
+        }
+
+        function buildConfirmSummary() {
+            const name = $('f-name').value.trim();
+            const sc = $('f-sc').value.trim();
+            const itemsHtml = Object.keys(cart).map(id => {
+                const m = MENU.find(x => x.id == id);
+                return `<div style="display:flex;justify-content:space-between;">
+      <span>${m.emoji} ${m.name} × ${cart[id]}</span>
+      <span style="color:var(--turmeric);">₹${discPrice(m) * cart[id]}</span>
+    </div>`;
+            }).join('');
+            const saved = cartOriginalTotal() - cartTotal();
+            $('confirm-summary').innerHTML = `
+    <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08);">
+      ${itemsHtml}
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:.85rem;color:var(--green);margin-bottom:6px;">
+      <span>Pre-booking discount</span><span>− ₹${saved}</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-family:'Bebas Neue';font-size:1.3rem;">
+      <span>TOTAL</span><span style="color:var(--turmeric);">₹${cartTotal()}</span>
+    </div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);
+      font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.9;">
+      👤 <strong style="color:var(--cream);">${name}</strong> &nbsp;|&nbsp; 🎓 ${sc}
+    </div>`;
+        }
+
+        // ─── WHATSAPP PRE-BOOKING ──────────────────────
+        function sendWhatsApp() {
+            const name = $('f-name').value.trim();
+            const sc = $('f-sc').value.trim();
+            const orderId = 'CF-' + (1000 + Math.floor(Math.random() * 9000));
+
+            const itemLines = Object.keys(cart).map(id => {
+                const m = MENU.find(x => x.id == id);
+                return `  • ${m.emoji} ${m.name} × ${cart[id]}  = ₹${discPrice(m) * cart[id]} (was ₹${m.price * cart[id]})`;
+            }).join('\n');
+
+            const saved = cartOriginalTotal() - cartTotal();
+
+            const msg =
+                `🎉 *${FEST_NAME} PRE-BOOKING — DHAABA 420* 🌶️
+━━━━━━━━━━━━━━━━━━━━
+🆔 *Order ID:* ${orderId}
+━━━━━━━━━━━━━━━━━━━━
+👤 *Name:* ${name}
+🎓 *SC Code:* ${sc}
+━━━━━━━━━━━━━━━━━━━━
+🍽️ *Items Pre-Booked:*
+${itemLines}
+━━━━━━━━━━━━━━━━━━━━
+🎟️ *Pre-Booking Discount (10%):* − ₹${saved}
+💰 *Total to Pay at Stall: ₹${cartTotal()}*
+━━━━━━━━━━━━━━━━━━━━
+Please confirm my pre-booking for ${FEST_NAME}. I'll pay & collect at the stall. Thank you! 🙏`;
+
+            const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+            window.open(waUrl, '_blank', 'noopener');
+
+            $('suc-oid').textContent = orderId;
+            $('suc-wa-link').href = waUrl;
+
+            cart = {};
+            document.querySelectorAll('.mc').forEach(card => {
+                const id = card.querySelector('[data-addbtn]')?.dataset.addbtn;
+                if (id) refreshCard(id);
+            });
+            refreshFab();
+
+            showScreen('scr-success');
+            $('scr-success').classList.add('show');
+            updateStepUI(3);
+        }
+
+        // ─── SPARKLES ──────────────────────────────────
+        function spawnSpark(e) {
+            const emojis = ['🌶️', '✨', '🔥', '⚡', '🧡', '💫', '🥙'];
+            for (let i = 0; i < 6; i++) {
+                const el = document.createElement('div');
+                el.className = 'spark';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.left = (e.clientX + (Math.random() - .5) * 60) + 'px';
+                el.style.top = (e.clientY + (Math.random() - .5) * 40 + window.scrollY) + 'px';
+                el.style.animationDelay = (Math.random() * .25) + 's';
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 900);
+            }
+        }
+
+        // ─── INIT ──────────────────────────────────────
+        window.addEventListener('load', () => {
+            renderMenu();
+            setTimeout(() => $('loader').classList.add('gone'), 1400);
+        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+
+</html>
