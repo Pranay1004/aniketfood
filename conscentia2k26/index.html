@@ -19,7 +19,6 @@
     <script>
         const OWNER_WHATSAPP = "917385020441"; // ← YOUR NUMBER HERE
         const PREBOOK_DISCOUNT = 0.10;         // ← 10% pre-booking discount
-        const FEST_NAME = "Conscentia 2k26";
     </script>
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
 
@@ -122,31 +121,42 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 28px;
+            padding: 0 20px;
             height: 60px;
             background: rgba(15, 5, 0, .92);
             backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(255, 107, 0, .12);
+            gap: 10px;
         }
 
         .nav-logo {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             color: var(--saffron);
             text-decoration: none;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .nav-logo .x {
             color: rgba(255, 255, 255, .3);
-            font-size: 1rem;
+            font-size: .9rem;
         }
 
         .nav-logo .fest {
             color: var(--turmeric);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
         .nav-order-btn {
@@ -154,9 +164,10 @@
             color: #fff !important;
             border-radius: 10px;
             text-decoration: none;
-            padding: 9px 20px;
-            font-size: .9rem;
+            padding: 9px 18px;
+            font-size: .85rem;
             font-weight: 800;
+            white-space: nowrap;
             box-shadow: 0 4px 16px rgba(255, 107, 0, .4);
             transition: all .2s;
         }
@@ -164,6 +175,35 @@
         .nav-order-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(255, 107, 0, .6);
+        }
+
+        .lang-toggle {
+            background: rgba(255, 107, 0, .12);
+            border: 1px solid rgba(255, 107, 0, .25);
+            color: var(--turmeric);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: .8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+
+        .lang-toggle:hover {
+            background: rgba(255, 107, 0, .22);
+            border-color: var(--saffron);
+        }
+
+        @media(max-width:560px) {
+            .nav-logo {
+                font-size: .95rem;
+            }
+
+            .nav-order-btn {
+                padding: 8px 12px;
+                font-size: .78rem;
+            }
         }
 
         /* ── HERO ── */
@@ -483,6 +523,10 @@
             color: rgba(255, 255, 255, .55);
             margin: 6px 0 14px;
             line-height: 1.6;
+        }
+
+        .mc-unit {
+            opacity: .6;
         }
 
         .price-row {
@@ -1022,7 +1066,11 @@
     <nav id="nav">
         <a class="nav-logo" href="#hero">🌶 DHAABA 420 <span class="x">×</span> <span class="fest">CONSCENTIA
                 2K26</span></a>
-        <a href="#menu" class="nav-order-btn">🔥 Pre-Book Now</a>
+        <div class="nav-right">
+            <a href="#menu" class="nav-order-btn" data-en="🔥 Pre-Book Now" data-mr="🔥 प्री-बुक करा">🔥 Pre-Book
+                Now</a>
+            <button class="lang-toggle" id="lang-toggle" onclick="toggleLanguage()">मराठी</button>
+        </div>
     </nav>
 
     <section id="hero">
@@ -1034,67 +1082,96 @@
             style="font-size:36px;top:18%;right:8%;animation-duration:3.8s;animation-delay:.3s">🍲</span>
         <span class="float" style="font-size:38px;top:74%;right:9%;animation-duration:6s;animation-delay:1.2s">✨</span>
 
-        <div class="hero-chip">🎉 CONSCENTIA 2K26 SPECIAL</div>
-        <h1 class="hero-h1"><span class="small">DHAABA 420 AT</span>FEST FOOD</h1>
-        <p class="hero-sub">Vada Pav · Mirchi Bhaji · Misal Pav — fest favourites, fest prices 🧡</p>
+        <div class="hero-chip" data-en="🎉 CONSCENTIA 2K26 SPECIAL" data-mr="🎉 कॉन्सेंटिया २क२६ स्पेशल">🎉 CONSCENTIA
+            2K26 SPECIAL</div>
+        <h1 class="hero-h1" data-en="<span class='small'>DHAABA 420 AT</span>FEST FOOD"
+            data-mr="<span class='small'>धाबा ४२० - </span>फेस्ट फूड" data-html="true"><span class="small">DHAABA 420
+                AT</span>FEST FOOD</h1>
+        <p class="hero-sub" data-en="Vada Pav · Mirchi Bhaji · Misal Pav — fest favourites, fest prices 🧡"
+            data-mr="वडा पाव · मिरची भजी · मिसळ पाव — फेस्टचे आवडते पदार्थ, फेस्टच्या खास किमतीत 🧡">Vada Pav · Mirchi
+            Bhaji · Misal Pav — fest favourites, fest prices 🧡</p>
 
         <div class="discount-banner">
-            <span class="dtag">🎟️ PRE-BOOK & SAVE 10%</span>
-            <span class="dsub">Skip the queue day-of — reserve your food now, pay & collect at the stall.</span>
+            <span class="dtag" data-en="🎟️ PRE-BOOK & SAVE 10%" data-mr="🎟️ प्री-बुक करा आणि १०% वाचवा">🎟️ PRE-BOOK &
+                SAVE 10%</span>
+            <span class="dsub" data-en="Skip the queue day-of — reserve your food now, pay & collect at the stall."
+                data-mr="त्या दिवशीची रांग टाळा — आत्ताच ऑर्डर करा, स्टॉलवर पैसे भरून पदार्थ घ्या.">Skip the queue
+                day-of — reserve your food now, pay & collect at the stall.</span>
         </div>
 
         <div class="hero-btns">
-            <a href="#menu" class="btn btn-hot">🔥 Pre-Book Now & Save 10%</a>
-            <a href="#how" class="btn btn-outline">How It Works</a>
+            <a href="#menu" class="btn btn-hot" data-en="🔥 Pre-Book Now & Save 10%"
+                data-mr="🔥 आत्ता प्री-बुक करा आणि १०% वाचवा">🔥 Pre-Book Now & Save 10%</a>
+            <a href="#how" class="btn btn-outline" data-en="How It Works" data-mr="कसे चालते">How It Works</a>
         </div>
     </section>
 
     <section id="menu">
-        <h2 class="sec-title">FEST MENU</h2>
-        <p class="sec-sub">Pre-booked orders get first priority at the stall. 🌶️</p>
+        <h2 class="sec-title" data-en="FEST MENU" data-mr="फेस्ट मेनू">FEST MENU</h2>
+        <p class="sec-sub" data-en="Pre-booked orders get first priority at the stall. 🌶️"
+            data-mr="प्री-बुक केलेल्या ऑर्डर्सना स्टॉलवर सर्वप्रथम प्राधान्य मिळेल. 🌶️">Pre-booked orders get first
+            priority at the stall. 🌶️</p>
         <div class="menu-grid" id="menu-grid"></div>
     </section>
 
     <section id="how" style="background:linear-gradient(135deg,rgba(255,107,0,.04),transparent);">
-        <h2 class="sec-title">HOW PRE-BOOKING WORKS</h2>
-        <p class="sec-sub">Reserve now, skip the fest-day queue. 📲</p>
+        <h2 class="sec-title" data-en="HOW PRE-BOOKING WORKS" data-mr="प्री-बुकिंग कसे करावे">HOW PRE-BOOKING WORKS</h2>
+        <p class="sec-sub" data-en="Reserve now, skip the fest-day queue. 📲"
+            data-mr="आत्ताच बुक करा, फेस्टच्या दिवशीची रांग टाळा. 📲">Reserve now, skip the fest-day queue. 📲</p>
         <div class="how-grid">
             <div class="how-card">
                 <div class="how-num">01</div>
                 <div class="how-icon">🥙</div>
-                <div class="how-title">Pick Your Food</div>
-                <div class="how-desc">Add fest items to your cart — discount is applied automatically.</div>
+                <div class="how-title" data-en="Pick Your Food" data-mr="तुमचा पदार्थ निवडा">Pick Your Food</div>
+                <div class="how-desc" data-en="Add fest items to your cart — discount is applied automatically."
+                    data-mr="फेस्ट पदार्थ कार्टमध्ये जोडा — सवलत आपोआप लागू होईल.">Add fest items to your cart —
+                    discount is applied automatically.</div>
             </div>
             <div class="how-card">
                 <div class="how-num">02</div>
                 <div class="how-icon">📝</div>
-                <div class="how-title">Fill Your Details</div>
-                <div class="how-desc">Name & SC Code — so we know whose order it is at the stall.</div>
+                <div class="how-title" data-en="Fill Your Details" data-mr="आपली माहिती भरा">Fill Your Details</div>
+                <div class="how-desc" data-en="Name & SC Code — so we know whose order it is at the stall."
+                    data-mr="नाव आणि एससी कोड भरा, म्हणजे स्टॉलवर ऑर्डर कोणाची आहे हे कळेल.">Name & SC Code — so we know
+                    whose order it is at the stall.</div>
             </div>
             <div class="how-card">
                 <div class="how-num">03</div>
                 <div class="how-icon">💬</div>
-                <div class="how-title">Send via WhatsApp</div>
-                <div class="how-desc">One tap sends your pre-booking request with the discounted total.</div>
+                <div class="how-title" data-en="Send via WhatsApp" data-mr="व्हाट्सअॅप द्वारे पाठवा">Send via WhatsApp
+                </div>
+                <div class="how-desc" data-en="One tap sends your pre-booking request with the discounted total."
+                    data-mr="एक टॅप करा आणि सवलतीच्या एकूण रकमेसह तुमची प्री-बुकिंग विनंती पाठवा.">One tap sends your
+                    pre-booking request with the discounted total.</div>
             </div>
             <div class="how-card">
                 <div class="how-num">04</div>
                 <div class="how-icon">🎪</div>
-                <div class="how-title">Collect & Pay at Stall</div>
-                <div class="how-desc">Show your Order ID at Dhaaba 420's Conscentia stall, pay there, and eat. 🔥</div>
+                <div class="how-title" data-en="Collect & Pay at Stall" data-mr="स्टॉलवर पैसे भरा आणि घ्या">Collect &
+                    Pay at Stall</div>
+                <div class="how-desc"
+                    data-en="Show your Order ID at Dhaaba 420's Conscentia stall, pay there, and eat. 🔥"
+                    data-mr="धाबा ४२०च्या कॉन्सेंटिया स्टॉलवर तुमचा ऑर्डर आयडी दाखवा, तिथे पैसे भरा आणि मजेत खा. 🔥">
+                    Show your Order ID at Dhaaba 420's Conscentia stall, pay there, and eat. 🔥</div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="ft-logo">🌶️ DHAABA 420 × CONSCENTIA 2K26</div>
-        <p>Fest Food Pre-Booking · IIST Campus · Made with Spice & Soul</p>
-        <p>Pre-book your order 👇 We reply within minutes on WhatsApp 📲</p>
-        <a class="back-link" href="/">← Back to regular Dhaaba 420 menu</a>
+        <div class="ft-logo" data-en="🌶️ DHAABA 420 × CONSCENTIA 2K26" data-mr="🌶️ धाबा ४२० × कॉन्सेंटिया २क२६">🌶️
+            DHAABA 420 × CONSCENTIA 2K26</div>
+        <p data-en="Fest Food Pre-Booking · IIST Campus · Made with Spice & Soul"
+            data-mr="फेस्ट फूड प्री-बुकिंग · IIST कॅम्पस · प्रेम आणि मसाल्याने बनवलेले">Fest Food Pre-Booking · IIST
+            Campus · Made with Spice & Soul</p>
+        <p data-en="Pre-book your order 👇 We reply within minutes on WhatsApp 📲"
+            data-mr="तुमची ऑर्डर प्री-बुक करा 👇 आम्ही काही मिनिटांत व्हाट्सअॅपवर उत्तर देऊ 📲">Pre-book your order 👇
+            We reply within minutes on WhatsApp 📲</p>
+        <a class="back-link" href="/" data-en="← Back to regular Dhaaba 420 menu"
+            data-mr="← नियमित धाबा ४२० मेनूकडे परत जा">← Back to regular Dhaaba 420 menu</a>
     </footer>
 
     <button id="cart-fab" onclick="openModal()">
-        <span>🛒 Pre-Book</span>
+        <span data-en="🛒 Pre-Book" data-mr="🛒 प्री-बुक">🛒 Pre-Book</span>
         <span class="cfab-badge" id="fab-count">0</span>
     </button>
 
@@ -1103,129 +1180,133 @@
             <button class="modal-x" onclick="closeModal()">✕</button>
 
             <div class="steps" id="modal-steps">
-                <div class="step active" id="ms-0">Cart</div>
-                <div class="step" id="ms-1">Details</div>
-                <div class="step" id="ms-2">Confirm</div>
+                <div class="step active" id="ms-0" data-en="Cart" data-mr="कार्ट">Cart</div>
+                <div class="step" id="ms-1" data-en="Details" data-mr="माहिती">Details</div>
+                <div class="step" id="ms-2" data-en="Confirm" data-mr="पुष्टी">Confirm</div>
             </div>
 
             <div id="scr-cart">
-                <div class="modal-title">🛒 Your Pre-Book Cart</div>
-                <div class="modal-hint">10% pre-booking discount already applied below</div>
+                <div class="modal-title" data-en="🛒 Your Pre-Book Cart" data-mr="🛒 तुमचे प्री-बुक कार्ट">🛒 Your
+                    Pre-Book Cart</div>
+                <div class="modal-hint" data-en="10% pre-booking discount already applied below"
+                    data-mr="१०% प्री-बुकिंग सवलत आधीच खाली लागू केली आहे">10% pre-booking discount already applied
+                    below</div>
                 <div class="cart-list" id="cart-list"></div>
                 <div class="cart-savings" id="cart-savings"></div>
                 <div class="cart-total" id="cart-total">Total: ₹0</div>
-                <button class="btn btn-hot" style="width:100%;justify-content:center;" onclick="goStep(1)">Proceed to
-                    Details →</button>
+                <button class="btn btn-hot" style="width:100%;justify-content:center;" onclick="goStep(1)"
+                    data-en="Proceed to Details →" data-mr="माहितीकडे जा →">Proceed to Details →</button>
             </div>
 
             <div id="scr-details" style="display:none;">
-                <div class="modal-title">📝 Your Details</div>
-                <div class="modal-hint" style="margin-bottom:20px;">So we know whose order this is at the stall 😄</div>
+                <div class="modal-title" data-en="📝 Your Details" data-mr="📝 तुमची माहिती">📝 Your Details</div>
+                <div class="modal-hint" style="margin-bottom:20px;"
+                    data-en="So we know whose order this is at the stall 😄"
+                    data-mr="स्टॉलवर ही ऑर्डर कोणाची आहे हे कळावं म्हणून 😄">So we know whose order this is at the stall
+                    😄</div>
                 <div class="form-row">
                     <div class="fg">
-                        <label class="fl">Full Name *</label>
+                        <label class="fl" data-en="Full Name *" data-mr="पूर्ण नाव *">Full Name *</label>
                         <input class="fi" id="f-name" placeholder="Rahul Deshmukh" autocomplete="name" />
                     </div>
                     <div class="fg">
-                        <label class="fl">SC Code *</label>
+                        <label class="fl" data-en="SC Code *" data-mr="एससी कोड *">SC Code *</label>
                         <input class="fi" id="f-sc" placeholder="SC2024XXX" />
                     </div>
                 </div>
                 <div style="display:flex;gap:10px;margin-top:4px;">
-                    <button class="btn btn-outline" style="flex:1;justify-content:center;" onclick="goStep(0)">←
-                        Back</button>
-                    <button class="btn btn-hot" style="flex:2;justify-content:center;" onclick="goStep(2)">Review Order
-                        →</button>
+                    <button class="btn btn-outline" style="flex:1;justify-content:center;" onclick="goStep(0)"
+                        data-en="← Back" data-mr="← मागे">← Back</button>
+                    <button class="btn btn-hot" style="flex:2;justify-content:center;" onclick="goStep(2)"
+                        data-en="Review Order →" data-mr="ऑर्डर पाहा →">Review Order →</button>
                 </div>
             </div>
 
             <div id="scr-confirm" style="display:none;">
-                <div class="modal-title">✅ Confirm Pre-Booking</div>
-                <div class="modal-hint" style="margin-bottom:20px;">One last look before we lock in your fest order 🔥
-                </div>
+                <div class="modal-title" data-en="✅ Confirm Pre-Booking" data-mr="✅ प्री-बुकिंगची पुष्टी">✅ Confirm
+                    Pre-Booking</div>
+                <div class="modal-hint" style="margin-bottom:20px;"
+                    data-en="One last look before we lock in your fest order 🔥"
+                    data-mr="तुमची फेस्ट ऑर्डर निश्चित करण्यापूर्वी एकदा शेवटचं पाहून घ्या 🔥">One last look before we
+                    lock in your fest order 🔥</div>
                 <div id="confirm-summary"
                     style="background:rgba(255,255,255,.04);border:1px solid rgba(255,107,0,.18);border-radius:16px;padding:20px;margin-bottom:20px;font-size:.9rem;line-height:1.9;">
                 </div>
                 <div id="payment-info"
                     style="background:rgba(37,211,102,.06);border:1px solid rgba(37,211,102,.25);border-radius:14px;padding:16px 18px;margin-bottom:20px;font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;">
-                    🎪 <strong style="color:var(--wa);">Payment at the stall:</strong><br>
-                    Tap "Send Pre-Booking on WhatsApp" → We confirm your reservation →<br>
-                    Show your <strong style="color:var(--turmeric);">Order ID</strong> at the Conscentia stall → Pay
-                    there → Collect & eat 🙌
                 </div>
                 <div style="display:flex;gap:10px;">
                     <button class="btn btn-outline" style="flex:1;justify-content:center;font-size:.9rem;"
-                        onclick="goStep(1)">← Edit</button>
+                        onclick="goStep(1)" data-en="← Edit" data-mr="← बदल करा">← Edit</button>
                     <button class="btn btn-wa" id="wa-send-btn" style="flex:2;justify-content:center;"
                         onclick="sendWhatsApp()">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
                             <path
                                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                         </svg>
-                        <span>Send Pre-Booking on WhatsApp</span>
+                        <span data-en="Send Pre-Booking on WhatsApp" data-mr="व्हाट्सअॅपवर प्री-बुकिंग पाठवा">Send
+                            Pre-Booking on WhatsApp</span>
                     </button>
                 </div>
             </div>
 
             <div id="scr-success">
                 <div class="suc-emoji">🎉</div>
-                <div class="suc-title">PRE-BOOKED!</div>
+                <div class="suc-title" data-en="PRE-BOOKED!" data-mr="प्री-बुक झाले!">PRE-BOOKED!</div>
                 <div class="suc-oid" id="suc-oid">CF-0000</div>
-                <p class="suc-note" id="success-note">
-                    Your pre-booking request has been sent to WhatsApp!<br>
-                    <strong style="color:var(--turmeric);">We'll confirm within minutes.</strong><br>
-                    Show this Order ID at the Conscentia stall, pay there & collect your food. 🔥
-                </p>
+                <p class="suc-note" id="success-note"></p>
                 <a id="suc-wa-link" href="#" target="_blank" rel="noopener" class="btn btn-wa"
                     style="width:100%;justify-content:center;text-decoration:none;margin-bottom:10px;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
                         <path
                             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
-                    <span>Reopen in WhatsApp</span>
+                    <span data-en="Reopen in WhatsApp" data-mr="व्हाट्सअॅप पुन्हा उघडा">Reopen in WhatsApp</span>
                 </a>
-                <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeModal()">Back
-                    to Menu 🥙</button>
+                <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeModal()"
+                    data-en="Back to Menu 🥙" data-mr="मेनूकडे परत जा 🥙">Back to Menu 🥙</button>
             </div>
         </div>
     </div>
 
     <script>
         // ─── FEST MENU DATA ────────────────────────────
-        // price = fest price (as displayed on the poster). Discount is applied at 10% off automatically.
         const MENU = [
             {
-                id: 1, name: "Vada Pav", emoji: "🥙", price: 60, unit: "2 pcs",
-                desc: "Crispy potato patty in soft pav with chutney & fried green chili."
+                id: 1, name: "Vada Pav", nameMr: "वडा पाव", emoji: "🥙", price: 60, unit: "2 pcs", unitMr: "२ नग",
+                desc: "Crispy potato patty in soft pav with chutney & fried green chili.",
+                descMr: "मऊ पावात कुरकुरीत बटाट्याचा वडा, चटणी आणि तळलेल्या हिरव्या मिरचीसह."
             },
             {
-                id: 2, name: "Mirchi Bhaji", emoji: "🌶️", price: 50, unit: "4 pcs",
-                desc: "Golden fried stuffed mirchi bhaji, served hot with chutney."
+                id: 2, name: "Mirchi Bhaji", nameMr: "मिरची भजी", emoji: "🌶️", price: 50, unit: "4 pcs", unitMr: "४ नग",
+                desc: "Golden fried stuffed mirchi bhaji, served hot with chutney.",
+                descMr: "सोनेरी तळलेली भरलेली मिरची भजी, गरमागरम चटणीसह."
             },
             {
-                id: 3, name: "Misal Pav", emoji: "🍲", price: 130, unit: "1 plate",
-                desc: "Moth beans rassa with farsan, onion, tomato, coriander & pav."
+                id: 3, name: "Misal Pav", nameMr: "मिसळ पाव", emoji: "🍲", price: 130, unit: "1 plate", unitMr: "१ प्लेट",
+                desc: "Moth beans rassa with farsan, onion, tomato, coriander & pav.",
+                descMr: "मटकीचा रस्सा, फरसाण, कांदा, टोमॅटो, कोथिंबीर आणि पाव यांसह."
             },
         ];
 
-        // ─── CART STATE ────────────────────────────────
-        let cart = {}; // { id: qty }
+        // ─── STATE ──────────────────────────────────────
+        let cart = {};
+        let currentLang = localStorage.getItem('dhaaba-lang') || 'en';
         const $ = id => document.getElementById(id);
+        const t = (en, mr) => currentLang === 'mr' ? mr : en;
+        const itemName = m => currentLang === 'mr' ? m.nameMr : m.name;
+        const itemDesc = m => currentLang === 'mr' ? m.descMr : m.desc;
+        const itemUnit = m => currentLang === 'mr' ? m.unitMr : m.unit;
         const discPrice = m => Math.round(m.price * (1 - PREBOOK_DISCOUNT));
         const cartTotal = () => Object.keys(cart).reduce((s, id) => { const m = MENU.find(x => x.id == id); return s + (discPrice(m) * cart[id]); }, 0);
         const cartOriginalTotal = () => Object.keys(cart).reduce((s, id) => { const m = MENU.find(x => x.id == id); return s + (m.price * cart[id]); }, 0);
         const cartCount = () => Object.values(cart).reduce((s, v) => s + v, 0);
 
-        function addOne(id) {
-            cart[id] = (cart[id] || 0) + 1;
-            refreshCard(id);
-            refreshFab();
-        }
+        function addOne(id) { cart[id] = (cart[id] || 0) + 1; refreshCard(id); refreshFab(); }
         function changeQty(id, delta) {
             cart[id] = Math.max(0, (cart[id] || 0) + delta);
             if (!cart[id]) delete cart[id];
-            refreshCard(id);
-            refreshFab();
+            refreshCard(id); refreshFab();
         }
         function refreshCard(id) {
             const qty = cart[id] || 0;
@@ -1239,8 +1320,42 @@
         function refreshFab() {
             const n = cartCount();
             $('fab-count').textContent = n;
-            if (n > 0) $('cart-fab').classList.add('up');
-            else $('cart-fab').classList.remove('up');
+            if (n > 0) $('cart-fab').classList.add('up'); else $('cart-fab').classList.remove('up');
+        }
+
+        function applyLanguage() {
+            document.documentElement.lang = currentLang === 'mr' ? 'mr' : 'en';
+            document.querySelectorAll('[data-en][data-mr]').forEach(el => {
+                const value = currentLang === 'mr' ? el.dataset.mr : el.dataset.en;
+                if (el.dataset.html === 'true') el.innerHTML = value; else el.textContent = value;
+            });
+            $('lang-toggle').textContent = currentLang === 'mr' ? 'English' : 'मराठी';
+            $('f-name').placeholder = currentLang === 'mr' ? 'राहुल देशमुख' : 'Rahul Deshmukh';
+
+            $('payment-info').innerHTML = currentLang === 'mr'
+                ? `🎪 <strong style="color:var(--wa);">स्टॉलवर पेमेंट:</strong><br>
+       "व्हाट्सअॅपवर प्री-बुकिंग पाठवा" वर टॅप करा → आम्ही तुमची बुकिंग कन्फर्म करू →<br>
+       कॉन्सेंटिया स्टॉलवर तुमचा <strong style="color:var(--turmeric);">ऑर्डर आयडी</strong> दाखवा → तिथे पैसे भरा → घ्या आणि मजेत खा 🙌`
+                : `🎪 <strong style="color:var(--wa);">Payment at the stall:</strong><br>
+       Tap "Send Pre-Booking on WhatsApp" → We confirm your reservation →<br>
+       Show your <strong style="color:var(--turmeric);">Order ID</strong> at the Conscentia stall → Pay there → Collect & eat 🙌`;
+
+            $('success-note').innerHTML = currentLang === 'mr'
+                ? `तुमची प्री-बुकिंग विनंती व्हाट्सअॅपवर पाठवली गेली आहे!<br>
+       <strong style="color:var(--turmeric);">आम्ही काही मिनिटांत कन्फर्म करू.</strong><br>
+       हा ऑर्डर आयडी कॉन्सेंटिया स्टॉलवर दाखवा, तिथे पैसे भरा आणि पदार्थ घ्या. 🔥`
+                : `Your pre-booking request has been sent to WhatsApp!<br>
+       <strong style="color:var(--turmeric);">We'll confirm within minutes.</strong><br>
+       Show this Order ID at the Conscentia stall, pay there & collect your food. 🔥`;
+
+            renderMenu();
+            renderCartList();
+            if (currentStep === 2) buildConfirmSummary();
+        }
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'mr' : 'en';
+            localStorage.setItem('dhaaba-lang', currentLang);
+            applyLanguage();
         }
 
         function renderMenu() {
@@ -1251,16 +1366,16 @@
                 div.className = 'mc';
                 div.style.transitionDelay = `${i * .07}s`;
                 div.innerHTML = `
-      <div class="mc-badge">SAVE ${Math.round(PREBOOK_DISCOUNT * 100)}%</div>
+      <div class="mc-badge">${t('SAVE', 'वाचवा')} ${Math.round(PREBOOK_DISCOUNT * 100)}%</div>
       <span class="mc-emoji">${item.emoji}</span>
-      <div class="mc-name">${item.name}</div>
-      <div class="mc-desc">${item.desc} <em style="opacity:.6">(${item.unit})</em></div>
+      <div class="mc-name">${itemName(item)}</div>
+      <div class="mc-desc">${itemDesc(item)} <em class="mc-unit">(${itemUnit(item)})</em></div>
       <div class="price-row">
         <span class="mc-price-old">₹${item.price}</span>
         <span class="mc-price-new">₹${discPrice(item)}</span>
       </div>
-      <div class="mc-save">You save ₹${item.price - discPrice(item)} with pre-booking</div>
-      <button class="add-btn" data-addbtn="${item.id}" onclick="addOne(${item.id});spawnSpark(event)">+ Add to Pre-Book</button>
+      <div class="mc-save">${t('You save', 'तुम्ही वाचवाल')} ₹${item.price - discPrice(item)} ${t('with pre-booking', 'प्री-बुकिंगसह')}</div>
+      <button class="add-btn" data-addbtn="${item.id}" onclick="addOne(${item.id});spawnSpark(event)">${t('+ Add to Pre-Book', '+ प्री-बुकमध्ये जोडा')}</button>
       <div class="qty-row" data-qtyrow="${item.id}" style="display:none;">
         <button class="qb" onclick="changeQty(${item.id},-1);spawnSpark(event)">−</button>
         <span class="qnum" data-qnum="${item.id}">0</span>
@@ -1277,46 +1392,32 @@
         let currentStep = 0;
 
         function openModal() {
-            renderCartList();
-            showScreen('scr-cart');
-            currentStep = 0;
-            updateStepUI(0);
-            $('overlay').classList.add('open');
-            document.body.style.overflow = 'hidden';
+            renderCartList(); showScreen('scr-cart'); currentStep = 0; updateStepUI(0);
+            $('overlay').classList.add('open'); document.body.style.overflow = 'hidden';
         }
-        function closeModal() {
-            $('overlay').classList.remove('open');
-            document.body.style.overflow = '';
-        }
+        function closeModal() { $('overlay').classList.remove('open'); document.body.style.overflow = ''; }
         function overlayClick(e) { if (e.target === $('overlay')) closeModal(); }
         function showScreen(id) { SCREENS.forEach(s => { $(s).style.display = s === id ? '' : 'none'; }); }
         function updateStepUI(step) {
             [0, 1, 2].forEach(i => {
                 const el = $(`ms-${i}`);
                 el.classList.remove('active', 'done');
-                if (i < step) el.classList.add('done');
-                else if (i === step) el.classList.add('active');
+                if (i < step) el.classList.add('done'); else if (i === step) el.classList.add('active');
             });
             $('modal-steps').style.display = step >= 3 ? 'none' : 'flex';
         }
 
         function goStep(step) {
             if (step === 1) {
-                if (cartCount() === 0) { alert('Add something to pre-book first! 🥙'); return; }
-                showScreen('scr-details');
-                currentStep = 1;
+                if (cartCount() === 0) { alert(t('Add something to pre-book first! 🥙', 'आधी प्री-बुकसाठी काहीतरी जोडा! 🥙')); return; }
+                showScreen('scr-details'); currentStep = 1;
             } else if (step === 2) {
-                const name = $('f-name').value.trim();
-                const sc = $('f-sc').value.trim();
-                if (!name) { $('f-name').focus(); alert('Please enter your name 😊'); return; }
-                if (!sc) { $('f-sc').focus(); alert('Please enter your SC code'); return; }
-                buildConfirmSummary();
-                showScreen('scr-confirm');
-                currentStep = 2;
+                const name = $('f-name').value.trim(), sc = $('f-sc').value.trim();
+                if (!name) { $('f-name').focus(); alert(t('Please enter your name 😊', 'कृपया तुमचे नाव भरा 😊')); return; }
+                if (!sc) { $('f-sc').focus(); alert(t('Please enter your SC code', 'कृपया तुमचा एससी कोड भरा')); return; }
+                buildConfirmSummary(); showScreen('scr-confirm'); currentStep = 2;
             } else if (step === 0) {
-                showScreen('scr-cart');
-                renderCartList();
-                currentStep = 0;
+                showScreen('scr-cart'); renderCartList(); currentStep = 0;
             }
             updateStepUI(currentStep);
         }
@@ -1325,8 +1426,8 @@
             const list = $('cart-list');
             list.innerHTML = '';
             if (cartCount() === 0) {
-                list.innerHTML = `<div class="cart-empty">Cart is empty. Go pick some fest food! 🥙</div>`;
-                $('cart-total').textContent = `Total: ₹0`;
+                list.innerHTML = `<div class="cart-empty">${t('Cart is empty. Go pick some fest food! 🥙', 'कार्ट रिकामं आहे. फेस्टचे पदार्थ निवडा! 🥙')}</div>`;
+                $('cart-total').textContent = `${t('Total', 'एकूण')}: ₹0`;
                 $('cart-savings').textContent = '';
                 return;
             }
@@ -1335,7 +1436,7 @@
                 const row = document.createElement('div');
                 row.className = 'ci';
                 row.innerHTML = `
-      <span class="ci-name">${m.emoji} ${m.name}</span>
+      <span class="ci-name">${m.emoji} ${itemName(m)}</span>
       <div class="ci-right">
         <button class="ci-qb" onclick="changeQty(${id},-1);renderCartList()">−</button>
         <span class="ci-qty">${cart[id]}</span>
@@ -1345,30 +1446,27 @@
                 list.appendChild(row);
             });
             const saved = cartOriginalTotal() - cartTotal();
-            $('cart-savings').innerHTML = `<span>🎉 Pre-booking discount</span><span>− ₹${saved}</span>`;
-            $('cart-total').textContent = `Total: ₹${cartTotal()}`;
+            $('cart-savings').innerHTML = `<span>🎉 ${t('Pre-booking discount', 'प्री-बुकिंग सवलत')}</span><span>− ₹${saved}</span>`;
+            $('cart-total').textContent = `${t('Total', 'एकूण')}: ₹${cartTotal()}`;
         }
 
         function buildConfirmSummary() {
-            const name = $('f-name').value.trim();
-            const sc = $('f-sc').value.trim();
+            const name = $('f-name').value.trim(), sc = $('f-sc').value.trim();
             const itemsHtml = Object.keys(cart).map(id => {
                 const m = MENU.find(x => x.id == id);
                 return `<div style="display:flex;justify-content:space-between;">
-      <span>${m.emoji} ${m.name} × ${cart[id]}</span>
+      <span>${m.emoji} ${itemName(m)} × ${cart[id]}</span>
       <span style="color:var(--turmeric);">₹${discPrice(m) * cart[id]}</span>
     </div>`;
             }).join('');
             const saved = cartOriginalTotal() - cartTotal();
             $('confirm-summary').innerHTML = `
-    <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08);">
-      ${itemsHtml}
-    </div>
+    <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08);">${itemsHtml}</div>
     <div style="display:flex;justify-content:space-between;font-size:.85rem;color:var(--green);margin-bottom:6px;">
-      <span>Pre-booking discount</span><span>− ₹${saved}</span>
+      <span>${t('Pre-booking discount', 'प्री-बुकिंग सवलत')}</span><span>− ₹${saved}</span>
     </div>
     <div style="display:flex;justify-content:space-between;font-family:'Bebas Neue';font-size:1.3rem;">
-      <span>TOTAL</span><span style="color:var(--turmeric);">₹${cartTotal()}</span>
+      <span>${t('TOTAL', 'एकूण')}</span><span style="color:var(--turmeric);">₹${cartTotal()}</span>
     </div>
     <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);
       font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.9;">
@@ -1378,19 +1476,22 @@
 
         // ─── WHATSAPP PRE-BOOKING ──────────────────────
         function sendWhatsApp() {
-            const name = $('f-name').value.trim();
-            const sc = $('f-sc').value.trim();
+            const name = $('f-name').value.trim(), sc = $('f-sc').value.trim();
             const orderId = 'CF-' + (1000 + Math.floor(Math.random() * 9000));
 
-            const itemLines = Object.keys(cart).map(id => {
+            const itemLinesEn = Object.keys(cart).map(id => {
                 const m = MENU.find(x => x.id == id);
                 return `  • ${m.emoji} ${m.name} × ${cart[id]}  = ₹${discPrice(m) * cart[id]} (was ₹${m.price * cart[id]})`;
+            }).join('\n');
+            const itemLinesMr = Object.keys(cart).map(id => {
+                const m = MENU.find(x => x.id == id);
+                return `  • ${m.emoji} ${m.nameMr} × ${cart[id]}  = ₹${discPrice(m) * cart[id]} (आधी ₹${m.price * cart[id]})`;
             }).join('\n');
 
             const saved = cartOriginalTotal() - cartTotal();
 
             const msg =
-                `🎉 *${FEST_NAME} PRE-BOOKING — DHAABA 420* 🌶️
+                `🎉 *CONSCENTIA 2K26 PRE-BOOKING — DHAABA 420* 🌶️
 ━━━━━━━━━━━━━━━━━━━━
 🆔 *Order ID:* ${orderId}
 ━━━━━━━━━━━━━━━━━━━━
@@ -1398,12 +1499,27 @@
 🎓 *SC Code:* ${sc}
 ━━━━━━━━━━━━━━━━━━━━
 🍽️ *Items Pre-Booked:*
-${itemLines}
+${itemLinesEn}
 ━━━━━━━━━━━━━━━━━━━━
 🎟️ *Pre-Booking Discount (10%):* − ₹${saved}
 💰 *Total to Pay at Stall: ₹${cartTotal()}*
 ━━━━━━━━━━━━━━━━━━━━
-Please confirm my pre-booking for ${FEST_NAME}. I'll pay & collect at the stall. Thank you! 🙏`;
+Please confirm my pre-booking for Conscentia 2k26. I'll pay & collect at the stall. Thank you! 🙏
+
+🎉 *कॉन्सेंटिया २क२६ प्री-बुकिंग — धाबा ४२०* 🌶️
+━━━━━━━━━━━━━━━━━━━━
+🆔 *ऑर्डर आयडी:* ${orderId}
+━━━━━━━━━━━━━━━━━━━━
+👤 *नाव:* ${name}
+🎓 *एससी कोड:* ${sc}
+━━━━━━━━━━━━━━━━━━━━
+🍽️ *प्री-बुक केलेले पदार्थ:*
+${itemLinesMr}
+━━━━━━━━━━━━━━━━━━━━
+🎟️ *प्री-बुकिंग सवलत (१०%):* − ₹${saved}
+💰 *स्टॉलवर भरायची एकूण रक्कम: ₹${cartTotal()}*
+━━━━━━━━━━━━━━━━━━━━
+कृपया कॉन्सेंटिया २क२६ साठी माझी प्री-बुकिंग कन्फर्म करा. मी स्टॉलवर पैसे भरून पदार्थ घेईन. धन्यवाद! 🙏`;
 
             const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
             window.open(waUrl, '_blank', 'noopener');
@@ -1441,6 +1557,7 @@ Please confirm my pre-booking for ${FEST_NAME}. I'll pay & collect at the stall.
         // ─── INIT ──────────────────────────────────────
         window.addEventListener('load', () => {
             renderMenu();
+            applyLanguage();
             setTimeout(() => $('loader').classList.add('gone'), 1400);
         });
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
